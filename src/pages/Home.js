@@ -5,7 +5,7 @@ import Options from "../components/Options";
 
 const Home = () => {
 
-    const [optionSelected, setOption] = useState(true);
+    const [optionSelected, setOption] = useState(false);
     const [isManager, setIsManager] = useState(false);
 
     const handleUserChoice = input => {
