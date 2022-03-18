@@ -1,10 +1,9 @@
 import Customer from "../pages/Customer";
-import Manager from "../pages/Manager";
+import Manager from "../pages/manager/Manager";
 
 
-const CustomerOrManager = () => { // receives isManager
+const CustomerOrManager = ({isManager}) => { // receives isManager
 
-    const isManager = false;
 return (
     <>
         {isManager ? <Manager/> : <Customer/>}
