@@ -1,21 +1,15 @@
-const Options = ({handleUserChoice}) => {
+// import { Link } from "react-router-dom";
 
-    const managerSelected = () => {
-        handleUserChoice(0)
-    }
-    
-    const customerSelected = () => {
-        handleUserChoice(1)
-    }
+// const Options = () => {
 
-    return (
-        <>
-        <h3>Manager or Customer?</h3>
-        <button onClick={managerSelected}>Manager</button>
-        <button onClick={customerSelected}>Customer</button>
-        </>
+//     return (
+//         <>
+//         <h3>Manager or Customer?</h3>
+//         <Link to="/manager">Manager</Link> 
+//         <button>Customer</button>
+//         </>
 
-    )
-}
+//     )
+// }
 
-export default Options;
+// export default Options;

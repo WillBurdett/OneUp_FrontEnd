@@ -1,29 +1,27 @@
 import React from "react";
-import { useState } from "react";
-import CustomerOrManager from "../container/CustomerOrManager";
-import Options from "../components/Options";
+import { Link } from "react-router-dom";
 
-const Home = () => {
+const Home = ({isManager}) => {
 
-    const [optionSelected, setOption] = useState(false);
-    const [isManager, setIsManager] = useState(false);
+    const handleIsManager = () => {
+        isManager(0)
+    }
 
-    const handleUserChoice = input => {
-        if (input === 0){
-            setIsManager(true);
-            setOption(true);
-        } else if (input === 1){
-            setIsManager(false);
-            setOption(true);
-        }
-    }           
+    const handleIsCustomer = () => {
+        isManager(1);
+    }
 
-    
-    // pass handleUserChoice function and 'option' to Options
     return (
         <>
-            {optionSelected ? <CustomerOrManager isManager={isManager}/> : <Options handleUserChoice={handleUserChoice}/>} 
-        </>
+        <ul>
+        <li>
+           <Link to="/manager" onClick={handleIsManager}>To Manager</Link>
+       </li>
+       <li>
+           <Link to="/customer" onClick={handleIsCustomer}>To Customer</Link>
+       </li>
+   </ul> 
+     </>  
     )
 }
 
