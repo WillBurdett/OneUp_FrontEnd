@@ -1,8 +1,8 @@
 import React, {useState} from "react";
-import ViewAllBooks from "../components/ViewAllBooks";
-import AddNewBook from "../components/AddNewBook";
+import ViewAllBooks from "../components/book-components/ViewAllBooks";
+import AddNewBook from "../components/book-components/AddNewBook";
 
-const BooksOptions = ({allBooks}) => {
+const BooksOptions = ({allBooks, addBookToDatabase}) => {
 
     const [viewAllBooks, setViewAllBooks] = useState(false)
     const [addNewBook, setAddNewBook] = useState(false)
@@ -28,7 +28,7 @@ const BooksOptions = ({allBooks}) => {
         </ul>
         <section>
             {viewAllBooks ? <ViewAllBooks allBooks={allBooks}/> : null}
-            {addNewBook ? <AddNewBook allBooks={allBooks}/> : null}
+            {addNewBook ? <AddNewBook allBooks={allBooks} addBookToDatabase={addBookToDatabase}/> : null}
         </section>
         </>
 

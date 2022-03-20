@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import BooksOptions from '../../container/BooksOptions';
 
-const Manager = ({allBooks}) => {
+const Manager = ({allBooks , addBookToDatabase}) => {
 
     const  [booksSelected, setBooksSelected] = useState(false);
     const  [authorsSelected, setAuthorsSelected] = useState(false);
@@ -24,7 +24,7 @@ const Manager = ({allBooks}) => {
                 <nav>
                     <button onClick={handleSetBooksSelected}>Books</button>
                     {/* make these a dropdown menu on hover */}
-                    {booksSelected ? <BooksOptions allBooks={allBooks}/> :  <p>View, Add, Update and Delete from the Books Directory.</p>}
+                    {booksSelected ? <BooksOptions allBooks={allBooks} addBookToDatabase={addBookToDatabase}/> :  <p>View, Add, Update and Delete from the Books Directory.</p>}
                     <button onClick={handleSetAuthorsSelected}>Authors</button>
                     {authorsSelected ? <p>Authors options showing</p> : <p>View, Add, Update and Delete from the Authors Directory.</p>}
                     <button onClick={handleSetCustomersSelected}>Customers</button>
