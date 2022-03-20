@@ -34,21 +34,21 @@ const CustomerOrManager = ({isManager}) => {
               'Content-Type' : "application/json" // this block adds our submitted cake to the database
             },
             body: JSON.stringify(newBook) // this returns our new pet object, so we can .then update the component live
-          })
-          .then(response => response.json)
-          .then(data => setAllBooks([...allBooks, data]))
-          .catch(error => console.log(error))
-          };
+           })
+           .then(response => response.json)
+           .then(data => setAllBooks([...allBooks, data]))
+           .catch(error => console.log(error))
+           };
 
     // DELETE BOOK BY ID FROM DATABASE
     const deleteBookById = id => {
         fetch("http://localhost:8080/books/" + id, {
             method: "DELETE"
-        })
-        .then(result => result.json())
-        .then(resp => console.warn(resp))
-        .catch(error => console.log(error))
-        };      
+            })
+            .then(result => result.json())
+            .then(resp => console.warn(resp))
+            .catch(error => console.log(error))
+            };      
         
 
 
