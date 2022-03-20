@@ -39,6 +39,16 @@ const CustomerOrManager = ({isManager}) => {
           .then(data => setAllBooks([...allBooks, data]))
           .catch(error => console.log(error))
           };
+
+    // DELETE BOOK BY ID FROM DATABASE
+    const deleteBookById = id => {
+        fetch("http://localhost:8080/books/" + id, {
+            method: "DELETE"
+        })
+        .then(result => result.json())
+        .then(resp => console.warn(resp))
+        .catch(error => console.log(error))
+        };      
         
 
 
@@ -52,7 +62,8 @@ return (
         <>
             {isManager && {allBooks} !== []? <Manager 
             allBooks={allBooksFormatted} 
-            addBookToDatabase={addBookToDatabase}/>
+            addBookToDatabase={addBookToDatabase}
+            deleteBookById={deleteBookById}/>
             :  <Customer/>} 
         </>
     )

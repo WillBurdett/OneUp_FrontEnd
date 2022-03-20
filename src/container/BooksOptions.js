@@ -1,20 +1,21 @@
 import React, {useState} from "react";
 import ViewAllBooks from "../components/book-components/ViewAllBooks";
 import AddNewBook from "../components/book-components/AddNewBook";
+import DeleteBookById from "../components/book-components/DeleteBookById";
 
-const BooksOptions = ({allBooks, addBookToDatabase}) => {
+const BooksOptions = ({allBooks, addBookToDatabase, deleteBookById}) => {
 
     const [viewAllBooks, setViewAllBooks] = useState(false)
     const [addNewBook, setAddNewBook] = useState(false)
     const [findBookById, setFindBookById] = useState(false)
     const [updateBookById, setUpdateBookById] = useState(false)
-    const [deleteBookById, setDeleteBookById] = useState(false)
+    const [deleteBookByIdState, setDeleteBookById] = useState(false)
 
     const handleViewAllBooks = () => viewAllBooks ? setViewAllBooks(false) : setViewAllBooks(true);
     const handleAddNewBook = () => addNewBook ? setAddNewBook(false) : setAddNewBook(true);
     const handleFindBookById = () => findBookById ? setFindBookById(false) : setFindBookById(true);
     const handleUpdateBookById = () => updateBookById ? setUpdateBookById(false) : setUpdateBookById(true);
-    const handleDeleteBookById = () => deleteBookById ? setDeleteBookById(false) : setDeleteBookById(true);
+    const handleDeleteBookById = () => deleteBookByIdState ? setDeleteBookById(false) : setDeleteBookById(true);
 
     return (
         <>
@@ -24,11 +25,12 @@ const BooksOptions = ({allBooks, addBookToDatabase}) => {
             <button onClick={handleAddNewBook}>Add a new book</button>
             <button>Find a book by Id</button>
             <button>Update a book by Id</button>
-            <button>Delete a book by Id</button>
+            <button onClick={handleDeleteBookById}>Delete a book by Id</button>
         </ul>
         <section>
             {viewAllBooks ? <ViewAllBooks allBooks={allBooks}/> : null}
             {addNewBook ? <AddNewBook allBooks={allBooks} addBookToDatabase={addBookToDatabase}/> : null}
+            {deleteBookByIdState ? <DeleteBookById deleteBookById={deleteBookById}/> : null}
         </section>
         </>
 
