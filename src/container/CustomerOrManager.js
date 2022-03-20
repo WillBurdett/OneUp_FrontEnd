@@ -1,5 +1,5 @@
 import Customer from "../pages/Customer";
-import Manager from "../pages/manager/Manager";
+import Manager from "../pages/Manager";
 import React, {useState, useEffect} from 'react';
 import Book from "../components/book-components/Books";
 
@@ -7,6 +7,13 @@ import Book from "../components/book-components/Books";
 
 
 const CustomerOrManager = ({isManager}) => { 
+
+    // All 'Book' state is loaded here to be parsed as both Manager and Customer 
+    // need access to books (for viewing, borrowing and returning purposes).
+
+    // However customers do not need access to 'User' state and
+    // therefore this will not be parsed to the Customer component.
+
 
     // BOOKS
 
@@ -25,6 +32,8 @@ const CustomerOrManager = ({isManager}) => {
                 return <Book key={book.bookId} book ={book}/>
             }   
         )
+    // GET BOOK BY ID 
+    // ...to be completed
 
     // ADD NEW BOOK
     const addBookToDatabase = newBook => {
@@ -50,11 +59,9 @@ const CustomerOrManager = ({isManager}) => {
             .catch(error => console.log(error))
             };      
         
+    // UPDATE BOOK BY ID 
+    // ...to be completed
 
-
-        
-
-    
 
     // load all data here to pass to manager or customer
 

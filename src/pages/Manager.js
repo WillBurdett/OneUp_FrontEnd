@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import BooksOptions from '../../container/BooksOptions';
+import BooksOptions from '../container/BooksOptions';
 
 const Manager = ({allBooks , addBookToDatabase, deleteBookById}) => {
 
