@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import BooksOptions from '../../container/BooksOptions';
 
 const Manager = ({allBooks}) => {
 
@@ -22,7 +23,7 @@ const Manager = ({allBooks}) => {
             <h2>Please select the directory you would like to access:</h2>
                 <nav>
                     <button onClick={handleSetBooksSelected}>Books</button>
-                    {booksSelected ? <ul>{allBooks}</ul> :  <p>View, Add, Update and Delete from the Books Directory.</p>}
+                    {booksSelected ? <BooksOptions allBooks={allBooks}/> :  <p>View, Add, Update and Delete from the Books Directory.</p>}
                     <button onClick={handleSetAuthorsSelected}>Authors</button>
                     {authorsSelected ? <p>Authors options showing</p> : <p>View, Add, Update and Delete from the Authors Directory.</p>}
                     <button onClick={handleSetCustomersSelected}>Customers</button>

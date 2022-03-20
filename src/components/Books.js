@@ -8,7 +8,7 @@ const Book = ({book}) => {
         <h3>Genre: {book.genre}</h3>
         <h3>Author Id: {book.authorId}</h3>
         <h3>User Id: {book.userID}</h3>
-        <h3>On Loan: {book.loaned}</h3>
+        <h3>On Loan: {book.loaned.toString()}</h3>
         <p>ISBN: {book.isbn}</p>
         </>
     )
