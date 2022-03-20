@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import ViewAllBooks from "../components/ViewAllBooks";
+import AddNewBook from "../components/AddNewBook";
 
 const BooksOptions = ({allBooks}) => {
 
@@ -10,18 +11,24 @@ const BooksOptions = ({allBooks}) => {
     const [deleteBookById, setDeleteBookById] = useState(false)
 
     const handleViewAllBooks = () => viewAllBooks ? setViewAllBooks(false) : setViewAllBooks(true);
+    const handleAddNewBook = () => addNewBook ? setAddNewBook(false) : setAddNewBook(true);
+    const handleFindBookById = () => findBookById ? setFindBookById(false) : setFindBookById(true);
+    const handleUpdateBookById = () => updateBookById ? setUpdateBookById(false) : setUpdateBookById(true);
+    const handleDeleteBookById = () => deleteBookById ? setDeleteBookById(false) : setDeleteBookById(true);
 
     return (
         <>
         <ul>
+            {/* make these a dropdown menu on hover */}
             <button onClick={handleViewAllBooks}>View all books</button>
-            <button>Add a new book</button>
+            <button onClick={handleAddNewBook}>Add a new book</button>
             <button>Find a book by Id</button>
             <button>Update a book by Id</button>
             <button>Delete a book by Id</button>
         </ul>
         <section>
             {viewAllBooks ? <ViewAllBooks allBooks={allBooks}/> : null}
+            {addNewBook ? <AddNewBook allBooks={allBooks}/> : null}
         </section>
         </>
 

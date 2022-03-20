@@ -23,6 +23,7 @@ const Manager = ({allBooks}) => {
             <h2>Please select the directory you would like to access:</h2>
                 <nav>
                     <button onClick={handleSetBooksSelected}>Books</button>
+                    {/* make these a dropdown menu on hover */}
                     {booksSelected ? <BooksOptions allBooks={allBooks}/> :  <p>View, Add, Update and Delete from the Books Directory.</p>}
                     <button onClick={handleSetAuthorsSelected}>Authors</button>
                     {authorsSelected ? <p>Authors options showing</p> : <p>View, Add, Update and Delete from the Authors Directory.</p>}
