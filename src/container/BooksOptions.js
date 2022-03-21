@@ -4,7 +4,7 @@ import AddNewBook from "../components/book-components/AddNewBook";
 import DeleteBookById from "../components/book-components/DeleteBookById";
 import GetBookById from "../components/book-components/GetBookById";
 
-const BooksOptions = ({allBooks, addBookToDatabase, deleteBookById, getBookById}) => {
+const BooksOptions = ({allBooks, addBookToDatabase, deleteBookById, getBookById, bookById}) => {
 
     const [viewAllBooks, setViewAllBooks] = useState(false)
     const [addNewBook, setAddNewBook] = useState(false)
@@ -32,10 +32,9 @@ const BooksOptions = ({allBooks, addBookToDatabase, deleteBookById, getBookById}
             {viewAllBooks ? <ViewAllBooks allBooks={allBooks}/> : null}
             {addNewBook ? <AddNewBook allBooks={allBooks} addBookToDatabase={addBookToDatabase}/> : null}
             {deleteBookByIdState ? <DeleteBookById deleteBookById={deleteBookById}/> : null}
-            {getBookByIdState ? <GetBookById getBookById={getBookById}/> : null}
+            {getBookByIdState ? <GetBookById getBookById={getBookById} bookById={bookById}/> : null}
         </section>
         </>
-
     )
 }
 

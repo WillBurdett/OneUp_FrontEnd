@@ -1,36 +1,58 @@
 import React, {useState} from "react";
 import { Navigate } from "react-router-dom";
+import Book from "./Books";
 
-const GetBookById = ({getBookById}) => {
-    const [idToGet, setIdToGet] = useState(0)
-    const handleIdToGetChange = event => setIdToGet(event.target.value);
-
-    const [bookFound, setBookFound] = useState("")
+const GetBookById = ({getBookById, bookById}) => {
+    let [idToGet, setIdToGet] = useState(0)
+    // let [bookFound, setBookFound] = useState("")
 
 
-    const handleGetBookById = event => {
+    const handleIdToGetChange = (event) => {
+        setIdToGet(event.target.value);
+    };
+
+
+    const handleGetBookById  = async (event) => {
         event.preventDefault();
+
+        console.log(idToGet)
 
         if(!idToGet){
             alert("missing information")
             return;
         }
 
-        // const book = allBooks.filter(book => book.bookId === idToGet)
+        getBookById(idToGet)
 
-        // const book = allBooks.map((book, index) => {
-        //     if (book.bookId === idToGet){
-        //         return book;
-        //     }
-        // })
 
-        const book = getBookById(idToGet);
-        setBookFound(book.title)
-        console.log(book)
+
+        // let book = "no value assigned to book";
+
+
+        // const findingBook = async (idSelected) => {
+        //     const bookFound = await getBookById(idSelected)
+        //     return bookFound;
+        // }
+        // const settingBookFound = async (idSelected) => {
+        //     const result = await findingBook(idSelected)
+        //     return result;
+        // }
+
+        // try{
+        //     book = await settingBookFound(idToGet)
+        //     setBookFound(book)
+        // }   catch (e) {
+        //     console.log("Error fetching!: " + e)
+        // }
+
+       
+       
+        // console.log(book)
 
         // to fix a redirection issue after delete form is submitted
         // return <Navigate to='/manager'/>
     }
+
 
 
     return (
@@ -38,10 +60,11 @@ const GetBookById = ({getBookById}) => {
         <form onSubmit={handleGetBookById}>
             <label htmlFor="idToGet">Id of the Book you would like to find:</label>
             <input type="text" id="idToGet" value={idToGet} onChange={handleIdToGetChange}/>
+
             <input type="submit" value="Get book"/>
         </form>
-        {/* <>{bookFound!=[] ? {bookFound} : null}</> */}
-        {/* <>{bookFound==0 ? null : {bookFound}}</> */}
+        {bookById}
+        {/* {bookFound} */}
         </>
     )
 }

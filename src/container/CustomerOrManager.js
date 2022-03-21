@@ -15,7 +15,9 @@ const CustomerOrManager = ({ isManager }) => {
 
     // SINGLE SOURCE OF BOOKS STATE
     const [allBooks, setAllBooks] = useState([]);
+    const [bookById, setBookById] = useState("");
 
+    
     // GET ALL BOOKS
     useEffect(() => {
         fetch("http://localhost:8080/books") // returns a promise
@@ -27,8 +29,6 @@ const CustomerOrManager = ({ isManager }) => {
     const allBooksFormatted = allBooks.map((book) => {
         return <Book key={book.bookId} book={book} />;
     });
-    // GET BOOK BY ID
-    // ...to be completed
 
     // ADD NEW BOOK
     const addBookToDatabase = (newBook) => {
@@ -55,14 +55,15 @@ const CustomerOrManager = ({ isManager }) => {
     };
 
     // GET BOOK BY ID FROM DATABASE
-    const getBookById = (id) => {
+    const getBookById = id => {
         fetch("http://localhost:8080/books/" + id, {
             method: "GET",
         })
             .then((result) => result.json())
-            .then((resp) => console.warn(resp))
+            .then((resp) => setBookById(JSON.stringify(resp)))
             .catch((error) => console.log(error));
     };
+
 
     // UPDATE BOOK BY ID
     // ...to be completed
@@ -112,10 +113,6 @@ const CustomerOrManager = ({ isManager }) => {
 
 
 
-
-
-
-
     return (
         <>
             {isManager && { allBooks } !== [] ? (
@@ -124,6 +121,7 @@ const CustomerOrManager = ({ isManager }) => {
                     addBookToDatabase={addBookToDatabase}
                     deleteBookById={deleteBookById}
                     getBookById={getBookById}
+                    bookById={bookById}
 
                     allAuthors={allAuthorsFormatted}
                     addAuthorToDatabase={addAuthorToDatabase}
