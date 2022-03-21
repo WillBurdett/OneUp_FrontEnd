@@ -2,6 +2,7 @@ import Customer from "../pages/Customer";
 import Manager from "../pages/Manager";
 import React, {useState, useEffect} from 'react';
 import Book from "../components/book-components/Books";
+import Author from "../components/author-components/Authors"
 
 
 
@@ -42,7 +43,7 @@ const CustomerOrManager = ({isManager}) => {
             headers: {
               'Content-Type' : "application/json" // this block adds our submitted cake to the database
             },
-            body: JSON.stringify(newBook) // this returns our new pet object, so we can .then update the component live
+            body: JSON.stringify(newBook) // this returns our new book object, so we can .then update the component live
            })
            .then(response => response.json)
            .then(data => setAllBooks([...allBooks, data]))
@@ -65,12 +66,33 @@ const CustomerOrManager = ({isManager}) => {
 
     // load all data here to pass to manager or customer
 
+    // -------------------------------------------------
+    
+    // Authors
+    const [allAuthors, setAllAuthors] = useState ([]);
+        
+    useEffect(() => {
+        fetch("http://localhost:8080/authors")
+        .then(response => response.json())
+        .then(data => setAllAuthors(data))
+        .catch(error => console.log(error));
+    }, [allAuthors]);
+
+    const allAuthorsFormatted = allAuthors.map( author => {
+            return <Author key={author.authorId} author ={author} />
+        }
+    )
+
+
+
+
 return (
         <>
             {isManager && {allBooks} !== []? <Manager 
             allBooks={allBooksFormatted} 
             addBookToDatabase={addBookToDatabase}
-            deleteBookById={deleteBookById}/>
+            deleteBookById={deleteBookById}
+            allAuthors={allAuthorsFormatted} />
             :  <Customer/>} 
         </>
     )

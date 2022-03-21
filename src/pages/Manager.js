@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import BooksOptions from '../container/BooksOptions';
 
-const Manager = ({allBooks , addBookToDatabase, deleteBookById}) => {
+const Manager = ({allBooks , addBookToDatabase, deleteBookById, allAuthors}) => {
 
     const  [booksSelected, setBooksSelected] = useState(false);
     const  [authorsSelected, setAuthorsSelected] = useState(false);
@@ -32,7 +32,7 @@ const Manager = ({allBooks , addBookToDatabase, deleteBookById}) => {
                     /> 
                     :  <p>View, Add, Update and Delete from the Books Directory.</p>}
                     <button onClick={handleSetAuthorsSelected}>Authors</button>
-                    {authorsSelected ? <p>Authors options showing</p> : <p>View, Add, Update and Delete from the Authors Directory.</p>}
+                    {authorsSelected ? <>{allAuthors} </>: <p>View, Add, Update and Delete from the Authors Directory.</p>}
                     <button onClick={handleSetCustomersSelected}>Customers</button>
                     {customersSelected ? <p>Customers options showing</p> : <p>View, Add, Update and Delete from the Customers Directory.</p>}
                 </nav>    
