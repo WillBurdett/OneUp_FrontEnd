@@ -68,7 +68,7 @@ const UpdateBook = ({updateBookById}) => {
             <label htmlFor="isbn">Isbn:</label>
             <input type="number" id="isbn" value={isbn} onChange={handleIsbnChange}/>
 
-            <input type="submit" value="Submit New Book"/>
+            <input type="submit" value="Update Book"/>
         </form> 
     )
 }

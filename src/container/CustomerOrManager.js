@@ -68,7 +68,7 @@ const CustomerOrManager = ({ isManager }) => {
     // UPDATE BOOK BY ID
     const updateBookInDatabase = (id, updatedBook) => {
       fetch("http://localhost:8080/books/" + id, {
-          method: "POST",
+          method: "PUT",
           headers: {
               "Content-Type": "application/json", // this block adds our submitted cake to the database
           },
