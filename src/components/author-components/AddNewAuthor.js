@@ -11,7 +11,7 @@ const AddNewAuthor = ({ allAuthors, addAuthorToDatabase }) => {
 
 
     const handleFormSubmit = event => {
-        event.preventdefault();
+        event.preventDefault();
 
         if (!name || !nationality) {
             alert("missing information")
@@ -20,7 +20,8 @@ const AddNewAuthor = ({ allAuthors, addAuthorToDatabase }) => {
 
         const newAuthor = {
             name: name,
-            nationality: nationality
+            nationality: nationality,
+            image: ""
         }
 
         addAuthorToDatabase(newAuthor)
