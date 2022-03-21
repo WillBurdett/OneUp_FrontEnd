@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import BooksOptions from '../container/BooksOptions';
+import AuthorsOptions from '../container/AuthorsOptions';
 
-const Manager = ({allBooks , addBookToDatabase, deleteBookById, allAuthors}) => {
+const Manager = ({allBooks , addBookToDatabase, deleteBookById, allAuthors, addAuthorToDatabase}) => {
 
     const  [booksSelected, setBooksSelected] = useState(false);
     const  [authorsSelected, setAuthorsSelected] = useState(false);
@@ -30,9 +31,17 @@ const Manager = ({allBooks , addBookToDatabase, deleteBookById, allAuthors}) => 
                     addBookToDatabase={addBookToDatabase}
                     deleteBookById={deleteBookById}
                     /> 
-                    :  <p>View, Add, Update and Delete from the Books Directory.</p>}
+                    : <p>View, Add, Update and Delete from the Books Directory.</p>}
+
                     <button onClick={handleSetAuthorsSelected}>Authors</button>
-                    {authorsSelected ? <>{allAuthors} </>: <p>View, Add, Update and Delete from the Authors Directory.</p>}
+                    {authorsSelected ? 
+                    <AuthorsOptions
+                    allAuthors={allAuthors}
+                    addAuthorToDatabase={addAuthorToDatabase}
+                    // deleteAuthorById={deleteAuthorById}
+                    /> 
+                    : <p>View, Add, Update and Delete from the Authors Directory.</p>}
+                    
                     <button onClick={handleSetCustomersSelected}>Customers</button>
                     {customersSelected ? <p>Customers options showing</p> : <p>View, Add, Update and Delete from the Customers Directory.</p>}
                 </nav>    
