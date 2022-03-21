@@ -66,7 +66,18 @@ const CustomerOrManager = ({ isManager }) => {
 
 
     // UPDATE BOOK BY ID
-    // ...to be completed
+    const updateBookInDatabase = (id, updatedBook) => {
+      fetch("http://localhost:8080/books/" + id, {
+          method: "POST",
+          headers: {
+              "Content-Type": "application/json", // this block adds our submitted cake to the database
+          },
+          body: JSON.stringify(updatedBook), // this returns our new book object, so we can .then update the component live
+      })
+          .then((response) => response.json())
+          .then((data) => setAllBooks(allBooks))
+          .catch((error) => console.log(error));
+  };
 
     // load all data here to pass to manager or customer
 
@@ -122,6 +133,7 @@ const CustomerOrManager = ({ isManager }) => {
                     deleteBookById={deleteBookById}
                     getBookById={getBookById}
                     bookById={bookById}
+                    updateBookById={updateBookInDatabase}
 
                     allAuthors={allAuthorsFormatted}
                     addAuthorToDatabase={addAuthorToDatabase}

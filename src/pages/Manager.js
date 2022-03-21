@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import BooksOptions from '../container/BooksOptions';
 import AuthorsOptions from '../container/AuthorsOptions';
 
-const Manager = ({allBooks , addBookToDatabase, deleteBookById, getBookById, bookById, allAuthors, addAuthorToDatabase, deleteAuthorById}) => {
+const Manager = ({allBooks , addBookToDatabase, deleteBookById, getBookById, bookById, updateBookById, allAuthors, addAuthorToDatabase, deleteAuthorById}) => {
 
     const  [booksSelected, setBooksSelected] = useState(false);
     const  [authorsSelected, setAuthorsSelected] = useState(false);
@@ -32,6 +32,7 @@ const Manager = ({allBooks , addBookToDatabase, deleteBookById, getBookById, boo
                     deleteBookById={deleteBookById}
                     getBookById={getBookById}
                     bookById={bookById}
+                    updateBookById={updateBookById}
                     /> 
                     : <p>View, Add, Update and Delete from the Books Directory.</p>}
 

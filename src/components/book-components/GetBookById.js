@@ -4,9 +4,7 @@ import Book from "./Books";
 
 const GetBookById = ({getBookById, bookById}) => {
     let [idToGet, setIdToGet] = useState(0)
-    // let [bookFound, setBookFound] = useState("")
-
-
+  
     const handleIdToGetChange = (event) => {
         setIdToGet(event.target.value);
     };
@@ -25,28 +23,6 @@ const GetBookById = ({getBookById, bookById}) => {
         getBookById(idToGet)
 
 
-
-        // let book = "no value assigned to book";
-
-
-        // const findingBook = async (idSelected) => {
-        //     const bookFound = await getBookById(idSelected)
-        //     return bookFound;
-        // }
-        // const settingBookFound = async (idSelected) => {
-        //     const result = await findingBook(idSelected)
-        //     return result;
-        // }
-
-        // try{
-        //     book = await settingBookFound(idToGet)
-        //     setBookFound(book)
-        // }   catch (e) {
-        //     console.log("Error fetching!: " + e)
-        // }
-
-       
-       
         // console.log(book)
 
         // to fix a redirection issue after delete form is submitted
