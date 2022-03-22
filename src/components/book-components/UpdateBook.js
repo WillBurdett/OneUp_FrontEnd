@@ -55,7 +55,6 @@ const UpdateBook = ({updateBookById}) => {
             <label htmlFor="bookId">Book Id:</label>
             <input type="text" id="bookId" value={bookId} onChange={handleBookIdChange}/>
 
-
             <label htmlFor="title">Title:</label>
             <input type="text" id="title" value={title} onChange={handleTitleChange}/>
 

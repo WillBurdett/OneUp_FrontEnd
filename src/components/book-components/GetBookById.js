@@ -38,7 +38,6 @@ const GetBookById = ({getBookById, bookById}) => {
             <input type="submit" value="Get book"/>
         </form>
         {bookById}
-        {/* {bookFound} */}
         </>
     )
 }
