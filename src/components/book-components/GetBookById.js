@@ -22,11 +22,14 @@ const GetBookById = ({getBookById, bookById}) => {
 
         getBookById(idToGet)
 
+        if (getBookById(idToGet) === '{}'){
+            alert("Book with Id " + idToGet + " not found.")
+        }
 
         // console.log(book)
 
         // to fix a redirection issue after delete form is submitted
-        // return <Navigate to='/manager'/>
+        return <Navigate to='/manager'/>
     }
 
 

@@ -59,7 +59,12 @@ const CustomerOrManager = ({ isManager }) => {
         fetch("http://localhost:8080/books/" + id, {
             method: "GET",
         })
-            .then((result) => result.json())
+            .then((result) => {
+                if (result.ok) {
+                    return result.json();
+                  }
+                  throw new Error('Something went wrong');
+            })
             .then((resp) => setBookById(JSON.stringify(resp)))
             .catch((error) => console.log(error));
     };
