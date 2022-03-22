@@ -1,5 +1,5 @@
 import React from "react";
-const Customer = ({customer}) => {
+const Customers = ({customer}) => {
 
     return(
         <>
@@ -12,4 +12,4 @@ const Customer = ({customer}) => {
         </>
     )
 }
-export default Customer;
+export default Customers;

@@ -1,12 +1,14 @@
-import React, { useState } from "react";
+import React, {useState} from "react";
 
-const AddNewCustomer = ({allCustomers, addCustomerToDatabase}) => {
+const UpdateCustomer = ({updateCustomerById}) => {
 
+    const [customerId, setCustomerId] = useState(0);
     const [username, setUsername] = useState("");
     const [name, setName] = useState("");
     const [isManger, setIsManager] = useState(false);
     const [password, setPassword] = useState("");
 
+    const handleCustomerIdChange = event => setCustomerId(event.target.value);
 
     const handleUsernameChange = event => setUsername(event.target.value);
 
@@ -19,19 +21,21 @@ const AddNewCustomer = ({allCustomers, addCustomerToDatabase}) => {
     const handleFormSubmit = event => {
         event.preventDefault();
 
-        if(!username || !name || !isManger || !password){
+        if(!customerId || !username || !name || !isManger || !password){
             alert("missing information")
             return;
         }
 
-        const newCustomer = {
+        const updatedCustomer = {
+            customerId: customerId,
             username: username,
             name: name,
             isManger: false,
             password: password
         }
-        addCustomerToDatabase(newCustomer)
+        updateCustomerById(customerId, updatedCustomer)
 
+        setCustomerId(0);
         setUsername("");
         setName("");
         setIsManager(false);
@@ -41,6 +45,10 @@ const AddNewCustomer = ({allCustomers, addCustomerToDatabase}) => {
 
     return(
         <form onSubmit={handleFormSubmit}>
+
+        <label htmlFor="customerId">Customer Id:</label>
+        <input type="number" id="customerId" value={customerId} onChange={handleCustomerIdChange}/>
+
         <label htmlFor="username">Username:</label>
         <input type="text" id="username" value={username} onChange={handleUsernameChange}/>
 
@@ -53,7 +61,7 @@ const AddNewCustomer = ({allCustomers, addCustomerToDatabase}) => {
         <label htmlFor="password">Password:</label>
         <input type="password" id="password" value={password} onChange={handlePasswordChange}/>
 
-        <input type="submit" value="Submit new customer"/>
+        <input type="submit" value="Submit New Customer"/>
     </form> 
 
     )
@@ -61,4 +69,5 @@ const AddNewCustomer = ({allCustomers, addCustomerToDatabase}) => {
 
 }
 
-export default AddNewCustomer;
+
+export default UpdateCustomer;

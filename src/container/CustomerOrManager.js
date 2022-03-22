@@ -3,6 +3,7 @@ import Manager from "../pages/Manager";
 import React, { useState, useEffect } from "react";
 import Book from "../components/book-components/Books";
 import Author from "../components/author-components/Authors";
+import Customers from "../components/customer-components/Customers";
 
 const CustomerOrManager = ({ isManager }) => {
     // All 'Book' state is loaded here to be parsed as both Manager and Customer
@@ -17,7 +18,7 @@ const CustomerOrManager = ({ isManager }) => {
     const [allBooks, setAllBooks] = useState([]);
     const [bookById, setBookById] = useState("");
 
-    
+
     // GET ALL BOOKS
     useEffect(() => {
         fetch("http://localhost:8080/books") // returns a promise
@@ -62,8 +63,8 @@ const CustomerOrManager = ({ isManager }) => {
             .then((result) => {
                 if (result.ok) {
                     return result.json();
-                  }
-                  throw new Error('Something went wrong');
+                }
+                throw new Error('Something went wrong');
             })
             .then((resp) => setBookById(JSON.stringify(resp)))
             .catch((error) => alert("Book with id " + id + " not found"));
@@ -72,17 +73,17 @@ const CustomerOrManager = ({ isManager }) => {
 
     // UPDATE BOOK BY ID
     const updateBookInDatabase = (id, updatedBook) => {
-      fetch("http://localhost:8080/books/" + id, {
-          method: "PUT",
-          headers: {
-              "Content-Type": "application/json", // this block adds our submitted cake to the database
-          },
-          body: JSON.stringify(updatedBook), // this returns our new book object, so we can .then update the component live
-      })
-          .then((response) => response.json())
-          .then((data) => setAllBooks(allBooks))
-          .catch((error) => console.log(error));
-  };
+        fetch("http://localhost:8080/books/" + id, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json", // this block adds our submitted cake to the database
+            },
+            body: JSON.stringify(updatedBook), // this returns our new book object, so we can .then update the component live
+        })
+            .then((response) => response.json())
+            .then((data) => setAllBooks(allBooks))
+            .catch((error) => console.log(error));
+    };
 
     // load all data here to pass to manager or customer
 
@@ -128,6 +129,63 @@ const CustomerOrManager = ({ isManager }) => {
     };
 
 
+    // -------------------------------------------------
+
+    // CUSTOMERS
+    const [allCustomers, setAllCustomers] = useState([]);
+
+    useEffect(() => {
+        fetch("http://localhost:8080/users")
+            .then((response) => response.json())
+            .then((data) => setAllCustomers(data))
+            .catch((error) => console.log(error));
+    }, [allCustomers]);
+
+    const allCustomersFormatted = allCustomers.map((customer) => {
+        return <Customers key={customer.serialID} customer={customer} />;
+    });
+
+    // ADD NEW CUSTOMER
+    const addCustomerToDatabase = (newCustomer) => {
+        fetch("http://localhost:8080/users", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json", // this block adds our submitted cake to the database
+            },
+            body: JSON.stringify(newCustomer), // this returns our new book object, so we can .then update the component live
+        })
+            .then((response) => response.json())
+            .then((data) => setAllCustomers([...allCustomers, data]))
+            .catch((error) => console.log(error));
+    };
+
+    // DELETE CUSTOMER BY ID FROM DATABASE
+    const deleteCustomerById = (id) => {
+        fetch("http://localhost:8080/users/" + id, {
+            method: "DELETE",
+        })
+            .then((result) => result.json())
+            .then((resp) => console.warn(resp))
+            .catch((error) => console.log(error));
+    };
+
+    // UPDATE CUSTOMER BY ID
+    const updateCustomerInDatabase = (id, updatedCustomer) => {
+        fetch("http://localhost:8080/users/" + id, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json", // this block adds our submitted cake to the database
+            },
+            body: JSON.stringify(updatedCustomer), // this returns our new book object, so we can .then update the component live
+        })
+            .then((response) => response.json())
+            .then((data) => setAllCustomers(allCustomers))
+            .catch((error) => console.log(error));
+    };
+
+
+
+    // -------------------------------------------------
 
     return (
         <>
@@ -143,15 +201,17 @@ const CustomerOrManager = ({ isManager }) => {
                     allAuthors={allAuthorsFormatted}
                     addAuthorToDatabase={addAuthorToDatabase}
                     deleteAuthorById={deleteAuthorById}
-                    
+
 
                     allCustomers={allCustomersFormatted}
                     addCustomerToDatabase={addCustomerToDatabase}
                     deleteCustomerById={deleteCustomerById}
+                    updateCustomerById={updateCustomerInDatabase}
+
 
                 />
             ) : (
-                <Customer/>
+                <Customer />
             )}
         </>
     );
