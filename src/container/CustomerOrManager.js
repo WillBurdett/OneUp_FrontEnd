@@ -16,7 +16,10 @@ const CustomerOrManager = ({ isManager }) => {
 
     // SINGLE SOURCE OF BOOKS STATE
     const [allBooks, setAllBooks] = useState([]);
-    const [bookById, setBookById] = useState({});
+    const [availableBooks, setAvailableBooks] = useState([]);
+    const [unavailableBooks, setUnavailableBooks] = useState([]);
+    const [bookById, setBookById] = useState([]);
+    
 
 
     // GET ALL BOOKS
@@ -28,6 +31,30 @@ const CustomerOrManager = ({ isManager }) => {
     }, [allBooks]);
 
     const allBooksFormatted = allBooks.map((book) => {
+        return <Book key={book.bookId} book={book} />;
+    });
+
+    // GET AVAILABLE BOOKS
+    useEffect(() => {
+        fetch("http://localhost:8080/available-books") // returns a promise
+            .then((response) => response.json()) // what we want to do with it? create json with body (returns another promise)
+            .then((data) => setAvailableBooks(data)) // set our state equal to the data we received
+            .catch((error) => console.log(error));
+    }, [availableBooks]);
+
+    const availableBooksFormatted = availableBooks.map((book) => {
+        return <Book key={book.bookId} book={book} />;
+    });
+
+    // GET UNAVAILABLE BOOKS
+    useEffect(() => {
+        fetch("http://localhost:8080/unavailable-books") // returns a promise
+            .then((response) => response.json()) // what we want to do with it? create json with body (returns another promise)
+            .then((data) => setUnavailableBooks(data)) // set our state equal to the data we received
+            .catch((error) => console.log(error));
+    }, [unavailableBooks]);
+
+    const unavailableBooksFormatted = unavailableBooks.map((book) => {
         return <Book key={book.bookId} book={book} />;
     });
 
@@ -55,24 +82,21 @@ const CustomerOrManager = ({ isManager }) => {
             .catch((error) => console.log(error));
     };
 
+    //---------------------------------------------
+
     // GET BOOK BY ID FROM DATABASE
     const getBookById = id => {
         fetch("http://localhost:8080/books/" + id, {
             method: "GET",
         })
-
-            .then((response) => response.json()) // what we want to do with it? create json with body (returns another promise)
-            .then((data) => setBookById(data)) // set our state equal to the data we received
-            .catch((error) => console.log(error));
-            // .then((result) => {
-            //     if (result.ok) {
-            //         return result.json();
-            //       }
-            //       throw new Error('Something went wrong');
-            // })
-            // .then((resp) => setBookById(JSON.stringify(resp))
-
+            .then((response) => response.json())
+            .then(result => setBookById([result.bookId, result.title, result.genre, result.authorId, result.userID, result.loaned.toString(), result.isbn])) 
+            .catch((error) => alert("Book with " + id + " not found."));
     };
+
+   //---------------------------------------------
+
+
 
 
     // UPDATE BOOK BY ID
@@ -89,7 +113,11 @@ const CustomerOrManager = ({ isManager }) => {
             .catch((error) => console.log(error));
     };
 
-    // load all data here to pass to manager or customer
+  
+
+
+
+
 
     // -------------------------------------------------
 
@@ -216,9 +244,49 @@ const CustomerOrManager = ({ isManager }) => {
     };
 
 
+
+
+
+
+
+
+    // CUSTOMER SIDE
+
+    // RETURN BOOK BY ID
+
+    const returnBook = (bookId) => {
+        fetch(`http://localhost:8080/assign/${bookId}`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json", // this block adds our submitted cake to the database
+            }, // this returns our new book object, so we can .then update the component live
+        })
+            .then((response) => response.json())
+            .then((data) => setAllBooks(allBooks))
+            .catch((error) => console.log(error));
+    };
+
+  
+
+
+    // LOAN BOOK BY ID
+    const loanBook = (userId, bookId) => {
+        fetch(`http://localhost:8080/assign/${bookId}/user/${userId}`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json", // this block adds our submitted cake to the database
+            }, // this returns our new book object, so we can .then update the component live
+        })
+            .then((response) => response.json())
+            .then((data) => setAllBooks(allBooks))
+            .catch((error) => console.log(error));
+    };
+
+
+
     return (
         <>
-            <Book bookById={bookById}/>
+            {/* <Book bookById={bookById}/> */}
             {isManager && { allBooks } !== [] ? (
                 <Manager
                     allBooks={allBooksFormatted}
@@ -245,7 +313,12 @@ const CustomerOrManager = ({ isManager }) => {
                 />
 
             ) : (
-                <Customer />
+                <Customer
+                allBooks={allBooksFormatted} 
+                availableBooks={availableBooksFormatted}
+                unavailableBooks={unavailableBooksFormatted}
+                loanBook={loanBook}
+                returnBook={returnBook}/>
             )}
         </>
     );
