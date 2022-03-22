@@ -2,8 +2,10 @@ import React, {useState} from "react";
 import { Navigate } from "react-router-dom";
 import Book from "./Book";
 
-const GetBookById = ({getBookById, bookById}) => {
-    let [idToGet, setIdToGet] = useState(0)
+const GetBookById = ({getBookById, bookById, allBooks}) => {
+    const [idToGet, setIdToGet] = useState(0)
+    const [bookToShow, setBookToShow] = useState()
+    const [showBook, setShowBook] = useState(false)
   
     const handleIdToGetChange = (event) => {
         setIdToGet(event.target.value);
@@ -20,7 +22,16 @@ const GetBookById = ({getBookById, bookById}) => {
             return;
         }
 
-        getBookById(idToGet)
+        const bookFound = getBookById(idToGet, allBooks);
+
+        console.log(bookFound)
+
+        if (bookFound == null){
+            setShowBook(false);
+        } else {
+            setBookToShow(bookFound)
+            setShowBook(true)
+        }
 
 
         // to fix a redirection issue after delete form is submitted
@@ -37,8 +48,7 @@ const GetBookById = ({getBookById, bookById}) => {
 
             <input type="submit" value="Get book"/>
         </form>
-        {bookById}
-        {/* {bookFound} */}
+        {showBook ? {bookToShow} : null }
         </>
     )
 }
