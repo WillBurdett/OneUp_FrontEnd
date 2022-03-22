@@ -1,5 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import './Home.css'
+
 
 const Home = ({isManager}) => {
 
@@ -10,7 +12,7 @@ const Home = ({isManager}) => {
     const handleIsCustomer = () => {
         isManager(1);
     }
-
+    
     return (
     <>
         <h1>Welcome to our Library!</h1>

@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import BooksOptions from '../container/BooksOptions';
 import AuthorsOptions from '../container/AuthorsOptions';
+import CustomerOptions from '../container/CustomersOptions';
 
-const Manager = ({allBooks , addBookToDatabase, deleteBookById, getBookById, bookById, updateBookById, allAuthors, addAuthorToDatabase, deleteAuthorById}) => {
+const Manager = ({allBooks , addBookToDatabase, deleteBookById, getBookById, bookById, updateBookById, allAuthors, addAuthorToDatabase, deleteAuthorById, updateAuthorById, allCustomers, addCustomerToDatabase, deleteCustomerById, updateCustomerById}) => {
 
     const  [booksSelected, setBooksSelected] = useState(false);
     const  [authorsSelected, setAuthorsSelected] = useState(false);
@@ -42,11 +43,21 @@ const Manager = ({allBooks , addBookToDatabase, deleteBookById, getBookById, boo
                     allAuthors={allAuthors}
                     addAuthorToDatabase={addAuthorToDatabase}
                     deleteAuthorById={deleteAuthorById}
+                    updateAuthorById={updateAuthorById}
+                    // getAuthorById={getAuthorById}
+                    // authorById={authorById}
                     /> 
                     : <p>View, Add, Update and Delete from the Authors Directory.</p>}
                     
                     <button onClick={handleSetCustomersSelected}>Customers</button>
-                    {customersSelected ? <p>Customers options showing</p> : <p>View, Add, Update and Delete from the Customers Directory.</p>}
+                    {customersSelected ? 
+                    <CustomerOptions
+                    allCustomers={allCustomers}
+                    addCustomerToDatabase={addCustomerToDatabase}
+                    deleteCustomerById={deleteCustomerById}
+                    updateCustomerById={updateCustomerById}
+                    />
+                    : <p>View, Add, Update and Delete from the Customers Directory.</p>}
                 </nav>    
         </>
     )
