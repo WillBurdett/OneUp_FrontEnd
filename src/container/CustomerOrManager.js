@@ -1,7 +1,7 @@
 import Customer from "../pages/Customer";
 import Manager from "../pages/Manager";
 import React, { useState, useEffect } from "react";
-import Book from "../components/book-components/Books";
+import Book from "../components/book-components/Book";
 import Author from "../components/author-components/Authors";
 
 const CustomerOrManager = ({ isManager }) => {
@@ -15,7 +15,7 @@ const CustomerOrManager = ({ isManager }) => {
 
     // SINGLE SOURCE OF BOOKS STATE
     const [allBooks, setAllBooks] = useState([]);
-    const [bookById, setBookById] = useState("");
+    const [bookById, setBookById] = useState({});
 
     
     // GET ALL BOOKS
@@ -59,14 +59,17 @@ const CustomerOrManager = ({ isManager }) => {
         fetch("http://localhost:8080/books/" + id, {
             method: "GET",
         })
-            .then((result) => {
-                if (result.ok) {
-                    return result.json();
-                  }
-                  throw new Error('Something went wrong');
-            })
-            .then((resp) => setBookById(JSON.stringify(resp)))
-            .catch((error) => alert("Book with id " + id + " not found"));
+            .then((response) => response.json()) // what we want to do with it? create json with body (returns another promise)
+            .then((data) => setBookById(data)) // set our state equal to the data we received
+            .catch((error) => console.log(error));
+            // .then((result) => {
+            //     if (result.ok) {
+            //         return result.json();
+            //       }
+            //       throw new Error('Something went wrong');
+            // })
+            // .then((resp) => setBookById(JSON.stringify(resp)))
+            // .catch((error) => alert("Book with id " + id + " not found"));
     };
 
 
@@ -131,6 +134,7 @@ const CustomerOrManager = ({ isManager }) => {
 
     return (
         <>
+            <Book bookById={bookById}/>
             {isManager && { allBooks } !== [] ? (
                 <Manager
                     allBooks={allBooksFormatted}
@@ -140,12 +144,15 @@ const CustomerOrManager = ({ isManager }) => {
                     bookById={bookById}
                     updateBookById={updateBookInDatabase}
 
+
                     allAuthors={allAuthorsFormatted}
                     addAuthorToDatabase={addAuthorToDatabase}
                     deleteAuthorById={deleteAuthorById}
+
                     
 
                 />
+
             ) : (
                 <Customer />
             )}

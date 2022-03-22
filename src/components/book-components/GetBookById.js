@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import { Navigate } from "react-router-dom";
-import Book from "./Books";
+import Book from "./Book";
 
 const GetBookById = ({getBookById, bookById}) => {
     let [idToGet, setIdToGet] = useState(0)
