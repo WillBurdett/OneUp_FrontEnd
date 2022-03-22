@@ -128,6 +128,34 @@ const CustomerOrManager = ({ isManager }) => {
             .catch((error) => console.log(error));
     };
 
+    // UPDATE AUTHOR BY ID
+    const updateAuthorInDatabase = (id, updatedAuthor) => {
+        fetch("http://localhost:8080/authors/" + id, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json", // this block adds our submitted cake to the database
+            },
+            body: JSON.stringify(updatedAuthor), // this returns our new book object, so we can .then update the component live
+        })
+            .then((response) => response.json())
+            .then((data) => setAllAuthors(allAuthors))
+            .catch((error) => console.log(error));
+    };
+
+    // GET AUTHOR BY ID FROM DATABASE
+    // const getAuthorById = id => {
+    //     fetch("http://localhost:8080/authors/" + id, {
+    //         method: "GET",
+    //     })
+    //         .then((result) => {
+    //             if (result.ok) {
+    //                 return result.json();
+    //               }
+    //               throw new Error('Something went wrong');
+    //         })
+    //         .then((resp) => setBookById(JSON.stringify(resp)))
+    //         .catch((error) => alert("Author with id " + id + " not found"));
+    // };
 
     // -------------------------------------------------
 
@@ -184,9 +212,6 @@ const CustomerOrManager = ({ isManager }) => {
     };
 
 
-
-    // -------------------------------------------------
-
     return (
         <>
             {isManager && { allBooks } !== [] ? (
@@ -201,22 +226,21 @@ const CustomerOrManager = ({ isManager }) => {
                     allAuthors={allAuthorsFormatted}
                     addAuthorToDatabase={addAuthorToDatabase}
                     deleteAuthorById={deleteAuthorById}
+                    updateAuthorById={updateAuthorInDatabase}
+                    // getAuthorById={getAuthorById}
+                    // authorById={authorById}
 
 
                     allCustomers={allCustomersFormatted}
                     addCustomerToDatabase={addCustomerToDatabase}
                     deleteCustomerById={deleteCustomerById}
                     updateCustomerById={updateCustomerInDatabase}
-
-
                 />
             ) : (
                 <Customer />
             )}
         </>
     );
-
-
 };
 
 export default CustomerOrManager;
