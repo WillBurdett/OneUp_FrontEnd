@@ -43,6 +43,8 @@ const Manager = ({allBooks , addBookToDatabase, deleteBookById, getBookById, boo
                     addAuthorToDatabase={addAuthorToDatabase}
                     deleteAuthorById={deleteAuthorById}
                     updateAuthorById={updateAuthorById}
+                    getAuthorById={getAuthorById}
+                    authorById={authorById}
                     /> 
                     : <p>View, Add, Update and Delete from the Authors Directory.</p>}
                     

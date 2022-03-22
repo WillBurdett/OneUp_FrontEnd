@@ -141,6 +141,21 @@ const CustomerOrManager = ({ isManager }) => {
             .catch((error) => console.log(error));
     };
 
+    // GET AUTHOR BY ID FROM DATABASE
+    const getAuthorById = id => {
+        fetch("http://localhost:8080/authors/" + id, {
+            method: "GET",
+        })
+            .then((result) => {
+                if (result.ok) {
+                    return result.json();
+                  }
+                  throw new Error('Something went wrong');
+            })
+            .then((resp) => setBookById(JSON.stringify(resp)))
+            .catch((error) => alert("Author with id " + id + " not found"));
+    };
+
     return (
         <>
             {isManager && { allBooks } !== [] ? (
@@ -156,16 +171,14 @@ const CustomerOrManager = ({ isManager }) => {
                     addAuthorToDatabase={addAuthorToDatabase}
                     deleteAuthorById={deleteAuthorById}
                     updateAuthorById={updateAuthorInDatabase}
-                    
-
+                    getAuthorById={getAuthorById}
+                    authorById={authorById}
                 />
             ) : (
                 <Customer />
             )}
         </>
     );
-
-
 };
 
 export default CustomerOrManager;
