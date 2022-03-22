@@ -145,9 +145,13 @@ const CustomerOrManager = ({ isManager }) => {
                     deleteAuthorById={deleteAuthorById}
                     
 
+                    allCustomers={allCustomersFormatted}
+                    addCustomerToDatabase={addCustomerToDatabase}
+                    deleteCustomerById={deleteCustomerById}
+
                 />
             ) : (
-                <Customer />
+                <Customer/>
             )}
         </>
     );
