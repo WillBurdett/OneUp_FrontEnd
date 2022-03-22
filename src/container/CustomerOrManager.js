@@ -66,7 +66,7 @@ const CustomerOrManager = ({ isManager }) => {
                   throw new Error('Something went wrong');
             })
             .then((resp) => setBookById(JSON.stringify(resp)))
-            .catch((error) => console.log(error));
+            .catch((error) => alert("Book with id " + id + " not found"));
     };
 
 
