@@ -17,7 +17,7 @@ const CustomerOrManager = ({ isManager }) => {
     const [allBooks, setAllBooks] = useState([]);
     const [availableBooks, setAvailableBooks] = useState([]);
     const [unavailableBooks, setUnavailableBooks] = useState([]);
-    // const [bookById, setBookById] = useState({});
+    const [bookById, setBookById] = useState([]);
 
     
     // GET ALL BOOKS
@@ -80,32 +80,22 @@ const CustomerOrManager = ({ isManager }) => {
             .catch((error) => console.log(error));
     };
 
-    // GET BOOK BY ID FROM DATABASE
-    // const getBookById = id => {
-    //     fetch("http://localhost:8080/books/" + id, {
-    //         method: "GET",
-    //     })
-    //         .then((response) => response.json()) // what we want to do with it? create json with body (returns another promise)
-    //         .then((data) => setBookById(data)) // set our state equal to the data we received
-    //         .catch((error) => console.log(error));
-    //         // .then((result) => {
-    //         //     if (result.ok) {
-    //         //         return result.json();
-    //         //       }
-    //         //       throw new Error('Something went wrong');
-    //         // })
-    //         // .then((resp) => setBookById(JSON.stringify(resp)))
-    //         // .catch((error) => alert("Book with id " + id + " not found"));
-    // };
+    //---------------------------------------------
 
-    const getBookById = (id, books) => {
-        for (let book of books){
-            if (book.bookId === id){
-                return <Book key={book.bookId} book={book} />;
-            }
-        }
-        return null;
-    }
+    // GET BOOK BY ID FROM DATABASE
+    const getBookById = id => {
+        fetch("http://localhost:8080/books/" + id, {
+            method: "GET",
+        })
+            .then((response) => response.json())
+            .then(result => setBookById([result.bookId, result.title, result.genre, result.authorId, result.userID, result.loaned, result.isbn])) 
+            .catch((error) => alert("Book with " + id + " not found."));
+          
+    };
+
+   //---------------------------------------------
+
+
 
 
     // UPDATE BOOK BY ID
@@ -122,7 +112,11 @@ const CustomerOrManager = ({ isManager }) => {
           .catch((error) => console.log(error));
   };
 
-    // load all data here to pass to manager or customer
+  
+
+
+
+
 
     // -------------------------------------------------
 
@@ -216,7 +210,7 @@ const CustomerOrManager = ({ isManager }) => {
                     addBookToDatabase={addBookToDatabase}
                     deleteBookById={deleteBookById}
                     getBookById={getBookById}
-                    // bookById={bookById}
+                    bookById={bookById}
                     updateBookById={updateBookInDatabase}
 
 
