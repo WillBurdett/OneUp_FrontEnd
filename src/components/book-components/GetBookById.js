@@ -25,15 +25,15 @@ const GetBookById = ({getBookById, bookById, allBooks}) => {
         getBookById(idToGet);
 
         setTimeout(() =>{
-        if (bookById == null){
+        if (bookById == null || bookById == undefined){
             setShowBook(false);
-        } else {
+        } else if ( bookById != undefined || bookById != []){
             setShowBook(true)
         }
         console.log("loading...")
         } , 1000);
         // to fix a redirection issue after delete form is submitted
-        return <Navigate to='/manager'/>
+        // return <Navigate to='/manager'/>
     }
 
     const foundBook = {
@@ -56,7 +56,7 @@ const GetBookById = ({getBookById, bookById, allBooks}) => {
 
             <input type="submit" value="Get book"/>
         </form>
-        {showBook ? <Book key={foundBook.bookId} book={foundBook}/> : null }
+        {showBook && bookById != undefined ? <Book key={foundBook.bookId} book={foundBook}/> : null }
         {/* {bookById[0]} */}
         {/* <Book key={foundBook.bookId} book={foundBook}/> */}
         </>

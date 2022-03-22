@@ -18,6 +18,7 @@ const CustomerOrManager = ({ isManager }) => {
     const [availableBooks, setAvailableBooks] = useState([]);
     const [unavailableBooks, setUnavailableBooks] = useState([]);
     const [bookById, setBookById] = useState([]);
+    
 
     
     // GET ALL BOOKS
@@ -88,9 +89,8 @@ const CustomerOrManager = ({ isManager }) => {
             method: "GET",
         })
             .then((response) => response.json())
-            .then(result => setBookById([result.bookId, result.title, result.genre, result.authorId, result.userID, result.loaned, result.isbn])) 
+            .then(result => setBookById([result.bookId, result.title, result.genre, result.authorId, result.userID, result.loaned.toString(), result.isbn])) 
             .catch((error) => alert("Book with " + id + " not found."));
-          
     };
 
    //---------------------------------------------
