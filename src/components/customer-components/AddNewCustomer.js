@@ -4,7 +4,7 @@ const AddNewCustomer = ({allCustomers, addCustomerToDatabase}) => {
 
     const [username, setUsername] = useState("");
     const [name, setName] = useState("");
-    const [isManger, setIsManager] = useState(false);
+    const [isManager, setIsManager] = useState(false);
     const [password, setPassword] = useState("");
 
 
@@ -19,7 +19,7 @@ const AddNewCustomer = ({allCustomers, addCustomerToDatabase}) => {
     const handleFormSubmit = event => {
         event.preventDefault();
 
-        if(!username || !name || !isManger || !password){
+        if(!username || !name || !isManager || !password){
             alert("missing information")
             return;
         }
@@ -27,7 +27,7 @@ const AddNewCustomer = ({allCustomers, addCustomerToDatabase}) => {
         const newCustomer = {
             username: username,
             name: name,
-            isManger: false,
+            isManager: false,
             password: password
         }
         addCustomerToDatabase(newCustomer)
@@ -48,7 +48,7 @@ const AddNewCustomer = ({allCustomers, addCustomerToDatabase}) => {
         <input type="text" id="name" value={name} onChange={handleNameChange}/>
 
         <label htmlFor="is Manager">Manager:</label>
-        <input type="checkbox" id="is Manager" value={isManger} onChange={handleIsManagerChange}/>
+        <input type="checkbox" id="is Manager" value={isManager} onChange={handleIsManagerChange}/>
 
         <label htmlFor="password">Password:</label>
         <input type="password" id="password" value={password} onChange={handlePasswordChange}/>

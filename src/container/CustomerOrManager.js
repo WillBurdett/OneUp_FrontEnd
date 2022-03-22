@@ -150,9 +150,9 @@ const CustomerOrManager = ({ isManager }) => {
         fetch("http://localhost:8080/users", {
             method: "POST",
             headers: {
-                "Content-Type": "application/json", // this block adds our submitted cake to the database
+                "Content-Type": "application/json", 
             },
-            body: JSON.stringify(newCustomer), // this returns our new book object, so we can .then update the component live
+            body: JSON.stringify(newCustomer), 
         })
             .then((response) => response.json())
             .then((data) => setAllCustomers([...allCustomers, data]))
