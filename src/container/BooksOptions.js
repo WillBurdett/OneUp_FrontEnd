@@ -33,7 +33,7 @@ const BooksOptions = ({allBooks, addBookToDatabase, deleteBookById, getBookById,
             {viewAllBooks ? <ViewAllBooks allBooks={allBooks}/> : null}
             {addNewBook ? <AddNewBook allBooks={allBooks} addBookToDatabase={addBookToDatabase}/> : null}
             {deleteBookByIdState ? <DeleteBookById deleteBookById={deleteBookById}/> : null}
-            {getBookByIdState ? <GetBookById getBookById={getBookById} bookById={bookById}/> : null}
+            {getBookByIdState ? <GetBookById getBookById={getBookById} bookById={bookById} allBooks={allBooks}/> : null}
             {updateBookByIdState ? <UpdateBook updateBookById={updateBookById}/> : null}
         </section>
         </>
