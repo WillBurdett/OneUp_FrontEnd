@@ -98,6 +98,10 @@ a:active {
     color: white;
 }
 
+#loanOrReturn-btn{
+    margin-top: 50px;
+}
+
 /* ---------------- NEW FLIP BOOK -------------------- */
 #stephen-king-quote{
     font-family: 'Handlee', cursive;
