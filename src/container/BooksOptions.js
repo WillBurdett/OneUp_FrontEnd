@@ -13,11 +13,33 @@ const BooksOptions = ({allBooks, addBookToDatabase, deleteBookById, getBookById,
     const [updateBookByIdState, setUpdateBookById] = useState(false)
     const [deleteBookByIdState, setDeleteBookById] = useState(false)
 
-    const handleViewAllBooks = () => viewAllBooks ? setViewAllBooks(false) : setViewAllBooks(true);
-    const handleAddNewBook = () => addNewBook ? setAddNewBook(false) : setAddNewBook(true);
-    const handleGetBookById = () => getBookByIdState ? setGetBookById(false) : setGetBookById(true);
-    const handleUpdateBookById = () => updateBookByIdState ? setUpdateBookById(false) : setUpdateBookById(true);
-    const handleDeleteBookById = () => deleteBookByIdState ? setDeleteBookById(false) : setDeleteBookById(true);
+    const handleViewAllBooks = () => {
+        setAllBookOptionsToHidden()
+        viewAllBooks ? setViewAllBooks(false) : setViewAllBooks(true);
+    }
+    const handleAddNewBook = () =>{
+        setAllBookOptionsToHidden() 
+        addNewBook ? setAddNewBook(false) : setAddNewBook(true);
+}
+    const handleGetBookById = () => {
+        setAllBookOptionsToHidden()
+        getBookByIdState ? setGetBookById(false) : setGetBookById(true);
+    }
+    const handleUpdateBookById = () => {
+        setAllBookOptionsToHidden()
+        updateBookByIdState ? setUpdateBookById(false) : setUpdateBookById(true);
+    }
+    const handleDeleteBookById = () => {
+        setAllBookOptionsToHidden()
+        deleteBookByIdState ? setDeleteBookById(false) : setDeleteBookById(true);
+}
+    const setAllBookOptionsToHidden = () => {
+        setViewAllBooks(false)
+        setAddNewBook(false)
+        setGetBookById(false)
+        setUpdateBookById(false)
+        setDeleteBookById(false)
+    }
 
     return (
         <>
