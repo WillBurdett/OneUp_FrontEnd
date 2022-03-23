@@ -22,7 +22,7 @@ const Home = ({isManager}) => {
         <Navbar/>
         <section className="home-headings_container">
             <h1 className="main-title">Welcome to <span id="home-1up">1-Up</span> library!</h1>
-            <p>Opening the door to knowledge</p>
+            <h2>'Opening the door to knowledge'</h2>
         </section>
         <>
             <div dangerouslySetInnerHTML={{__html: `<div class ='svg'>

@@ -58,6 +58,9 @@ a:active {
     display: flex;
     justify-content: end;
 }
+.main-title{
+    font-size: 50px;
+}
 
 .about-us_container{
     margin-top: 4em;
@@ -78,6 +81,8 @@ a:active {
 #home-1up{
     color: rgb(89, 216, 89);
 }
+
+
 
 #home-staff_login{
     color: #b8aea8;
