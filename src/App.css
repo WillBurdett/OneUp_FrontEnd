@@ -2,3 +2,42 @@ body{
   background-color: #f7efee;
   font-family: 'Raleway', sans-serif;
 }
+
+#loanOrReturn-btn{
+  background-color: #b8aea8;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  text-decoration: none;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  color: white;
+  display: inline-block;
+  font-size: 16px;
+}
+
+#navbar {
+  background-color: #b8aea8;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  list-style-type: none;
+  /* background-color: var(--orange); */
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.navitem a {
+  color: var(--dark-green);
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.navitem a:hover {
+  color: #3f3c3a;
+  font-weight: bold;
+}
+
+/* background-color: #b8aea8; */
