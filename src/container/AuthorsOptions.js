@@ -13,11 +13,34 @@ const AuthorsOptions = ({allAuthors, addAuthorToDatabase, deleteAuthorById, upda
     const [updateAuthorByIdState, setUpdateAuthorById] = useState(false)
     const [deleteAuthorByIdState, setDeleteAuthorById] = useState(false)
 
-    const handleViewAllAuthors = () => viewAllAuthors ? setViewAllAuthors(false) : setViewAllAuthors(true);
-    const handleAddNewAuthor = () => addNewAuthor ? setAddNewAuthor(false) : setAddNewAuthor(true);
-    const handleGetAuthorById = () => getAuthorByIdState ? setGetAuthorById(false) : setGetAuthorById(true);
-    const handleUpdateAuthorById = () => updateAuthorByIdState ? setUpdateAuthorById(false) : setUpdateAuthorById(true);
-    const handleDeleteAuthorById = () => deleteAuthorByIdState ? setDeleteAuthorById(false) : setDeleteAuthorById(true);
+    const handleViewAllAuthors = () => {
+        setAllAuthorOptionsToHidden();
+        viewAllAuthors ? setViewAllAuthors(false) : setViewAllAuthors(true);
+    }
+    const handleAddNewAuthor = () => {
+        setAllAuthorOptionsToHidden();
+        addNewAuthor ? setAddNewAuthor(false) : setAddNewAuthor(true);
+    }
+    const handleGetAuthorById = () => {
+        setAllAuthorOptionsToHidden();
+        getAuthorByIdState ? setGetAuthorById(false) : setGetAuthorById(true);
+    }
+    const handleUpdateAuthorById = () => {
+        setAllAuthorOptionsToHidden();
+        updateAuthorByIdState ? setUpdateAuthorById(false) : setUpdateAuthorById(true);
+    }
+    const handleDeleteAuthorById = () => {
+        setAllAuthorOptionsToHidden();
+        deleteAuthorByIdState ? setDeleteAuthorById(false) : setDeleteAuthorById(true);
+    }
+
+    const setAllAuthorOptionsToHidden = () => {
+        setViewAllAuthors(false)
+        setAddNewAuthor(false)
+        setGetAuthorById(false)
+        setUpdateAuthorById(false)
+        setDeleteAuthorById(false)
+    }
 
     return (
         <>

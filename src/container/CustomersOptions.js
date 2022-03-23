@@ -12,11 +12,34 @@ const CustomerOptions = ({allCustomers, addCustomerToDatabase, deleteCustomerByI
     const [updateCustomerByIdState, setUpdateCustomerById] = useState(false)
     const [deleteCustomerByIdState, setDeleteCustomerById] = useState(false)
 
-    const handleViewAllCustomers = () => viewAllCustomers ? setViewAllCustomers(false) : setViewAllCustomers(true);
-    const handleAddNewCustomer = () => addNewCustomerState ? setAddNewCustomer(false) : setAddNewCustomer(true);
-    const handleFindCustomerById = () => findCustomerById ? setFindCustomerById(false) : setFindCustomerById(true);
-    const handleUpdateCustomerById = () => updateCustomerByIdState ? setUpdateCustomerById(false) : setUpdateCustomerById(true);
-    const handleDeleteCustomerById = () => deleteCustomerByIdState ? setDeleteCustomerById(false) : setDeleteCustomerById(true);
+    const handleViewAllCustomers = () => {
+        setAllCustomerOptionsToHidden();
+        viewAllCustomers ? setViewAllCustomers(false) : setViewAllCustomers(true);
+    }
+    const handleAddNewCustomer = () => {
+        setAllCustomerOptionsToHidden();
+        addNewCustomerState ? setAddNewCustomer(false) : setAddNewCustomer(true);
+    }
+    const handleFindCustomerById = () => {
+        setAllCustomerOptionsToHidden();
+        findCustomerById ? setFindCustomerById(false) : setFindCustomerById(true);
+    }
+    const handleUpdateCustomerById = () => {
+        setAllCustomerOptionsToHidden();
+        updateCustomerByIdState ? setUpdateCustomerById(false) : setUpdateCustomerById(true);
+    }
+    const handleDeleteCustomerById = () => {
+        setAllCustomerOptionsToHidden();
+        deleteCustomerByIdState ? setDeleteCustomerById(false) : setDeleteCustomerById(true);
+    }
+
+    const setAllCustomerOptionsToHidden = () => {
+        setViewAllCustomers(false)
+        setAddNewCustomer(false)
+        setFindCustomerById(false)
+        setUpdateCustomerById(false)
+        setDeleteCustomerById(false)
+    }
 
     return (
         <>
@@ -24,7 +47,7 @@ const CustomerOptions = ({allCustomers, addCustomerToDatabase, deleteCustomerByI
             {/* make these a dropdown menu on hover */}
             <button onClick={handleViewAllCustomers}>View all customers</button>
             <button onClick={handleAddNewCustomer}>Add a new customer</button>
-            <button>Find a Customer by Id</button>
+            <button onClick={handleFindCustomerById}>Find a Customer by Id</button>
             <button onClick={handleUpdateCustomerById}>Update a customer by Id</button>
             <button onClick={handleDeleteCustomerById}>Delete a customer by Id</button>
         </ul>
