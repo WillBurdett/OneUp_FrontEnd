@@ -17,7 +17,7 @@ const Home = ({isManager}) => {
     return (
     <>   
         <section className="home-login_btn">
-        <p><Link to="/manager" onClick={handleIsManager}>Staff Login</Link></p>
+        <p><Link  id="home-staff_login"to="/manager" onClick={handleIsManager}>Staff Login</Link></p>
         </section>   
         <Navbar/>
         <section className="home-headings_container">
@@ -116,7 +116,7 @@ const Home = ({isManager}) => {
         </section>
         <section className="about-us_container">
             <div className="about-us_textbox">
-                <h3>About us</h3>
+                <h2>About us</h2>
                 <p>Something about the company and our beliefs</p>
             </div>
             <div>
