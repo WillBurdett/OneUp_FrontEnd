@@ -3,6 +3,8 @@ import Navbar from "../container/NavBar";
 import FooterBar from "../container/FooterBar";
 import './Customer.css'
 import './Home.css'
+import ViewAllBooks from '../components/book-components/ViewAllBooks';
+import Book from '../components/book-components/Book';
 
 const Customer = ({allBooks, availableBooks, unavailableBooks, loanBook, returnBook}) => {
 
@@ -10,13 +12,35 @@ const Customer = ({allBooks, availableBooks, unavailableBooks, loanBook, returnB
     const [idOfBookToBorrow, setIdOfBookToBorrow] = useState(0)
     const [idOfUserToBorrow, setIdOfUserToBorrow] = useState(0)
     const [showAllBooks, setShowAllBooks] = useState(false)
-    const [showAvailableBooks, setAvailableAllBooks] = useState(false)
+    const [showAvailableBooks, setAvailableBooks] = useState(false)
 
+    const availableFilter = document.querySelector(".available-filter")
 
     const handleIdToReturn = event => setIdToReturn(event.target.value);
     const handleBookIdToBorrow = event => setIdOfBookToBorrow(event.target.value);
     const handleUserIdToBorrow = event => setIdOfUserToBorrow(event.target.value);
 
+
+    const resetBooksShown = () => {
+        setShowAllBooks(false);
+        // setAvailableBooks(false);
+    }
+
+    const handleViewAllBooks = () => {
+        resetBooksShown();
+        showAllBooks ? setShowAllBooks(false) : setShowAllBooks(true);
+    }
+    const handleViewAvailableBooks = () => {
+        // resetBooksShown();
+        if (showAvailableBooks){
+            availableFilter.classList.remove("available-filter-on")
+            setAvailableBooks(false) 
+        } else {
+            availableFilter.classList.add("available-filter-on")
+            setAvailableBooks(true);
+        }
+    }
+    
     const handleReturnBookById = event => {
         event.preventDefault()
         returnBook(idToReturn)
@@ -44,12 +68,10 @@ const Customer = ({allBooks, availableBooks, unavailableBooks, loanBook, returnB
         {/* Books display */}
         <section className='customer-books-container'>
             <div>
-                <h3>Available Books</h3>
-                {availableBooks}
-            </div>
-            <div>
-                <h3>Books Out-On-Loan</h3>
-                {unavailableBooks}
+                <button onClick={handleViewAllBooks}>View All Books</button>
+                {showAllBooks ?  <> <button className="available-filter" onClick={handleViewAvailableBooks}>Filter By Available Books</button> </>: null}
+               {showAllBooks && !showAvailableBooks ? <> {availableBooks} {unavailableBooks} </> : null}
+               {showAllBooks && showAvailableBooks ? <> {availableBooks} </> : null}
             </div>
         </section>
 
