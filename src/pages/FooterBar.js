@@ -1,31 +1,28 @@
 import React from "react"
+import "./FooterBar.css";
 
 const FooterBar = () => {
-
-
-
-
     return (
 
-        <footer className="footer">
+        <div className="footer">
             <div className="container">
                 <div className="row">
                     <div className="footer-col">
                         <h4>1-Up</h4>
                         <ul>
-                            <li><a href=""></a>About us</li>
-                            <li><a href=""></a>Our services</li>
-                            <li><a href=""></a>Life in the library</li>
+                            <li><a href="">About us</a></li>
+                            <li><a href="">Our services</a></li>
+                            <li><a href="">Life in the library</a></li>
                         </ul>
 
                     </ div>
                     <div className="footer-col">
                         <h4>Locations</h4>
                         <ul>
-                            <li><a href=""></a>Bright Office</li>
-                            <li><a href=""></a>Edinburgh</li>
-                            <li><a href=""></a>Henley</li>
-                            <li><a href=""></a>Los Santos</li>
+                            <li><a href="">Bright Office</a></li>
+                            <li><a href="">Edinburgh</a></li>
+                            <li><a href="">Henley</a></li>
+                            <li><a href="">Los Santos</a></li>
                         </ul>
 
                     </ div>
@@ -35,7 +32,7 @@ const FooterBar = () => {
                             <li><a href="">FAQ</a></li>
                             <li><a href="">Loan Queries</a></li>
                             <li><a href="">Return Queries</a></li>
-                            <li><a href=""></a>Lost book form</li>
+                            <li><a href="">Lost book form</a></li>
                         </ul>
 
                     </ div>
@@ -52,7 +49,7 @@ const FooterBar = () => {
 
             </div>
 
-        </footer>
+        </div>
 
 
     // NAV BAR EXAMPLE    

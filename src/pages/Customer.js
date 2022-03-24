@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import Navbar from "../container/NavBar";
-import FooterBar from "../container/FooterBar";
+import FooterBar from "./FooterBar";
 import './Customer.css'
 import './Home.css'
 
