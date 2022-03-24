@@ -2,9 +2,9 @@ import React from "react";
 
 const ViewAllBooks = ({allBooks}) => {
     return(
-        <>
-        {allBooks}
-        </>
+        <div id ="book-container">
+            {allBooks}
+        </div>
     )
 }
 

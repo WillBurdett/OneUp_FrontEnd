@@ -45,12 +45,13 @@ const BooksOptions = ({allBooks, addBookToDatabase, deleteBookById, getBookById,
         <>
         <ul>
             {/* make these a dropdown menu on hover */}
-            <button onClick={handleViewAllBooks}>View all books</button>
-            <button onClick={handleAddNewBook}>Add a new book</button>
-            <button onClick={handleGetBookById}>Find a book by Id</button>
-            <button onClick= {handleUpdateBookById}>Update a book by Id</button>
-            <button onClick={handleDeleteBookById}>Delete a book by Id</button>
+            <button className="btn" onClick={handleViewAllBooks}>View all books</button>
+            <button className="btn" onClick={handleAddNewBook}>Add a new book</button>
+            <button className="btn" onClick={handleGetBookById}>Find a book by Id</button>
+            <button className="btn" onClick= {handleUpdateBookById}>Update a book by Id</button>
+            <button className="btn" onClick={handleDeleteBookById}>Delete a book by Id</button>
         </ul>
+        <hr/>
         <section>
             {viewAllBooks ? <ViewAllBooks allBooks={allBooks}/> : null}
             {addNewBook ? <AddNewBook allBooks={allBooks} addBookToDatabase={addBookToDatabase}/> : null}

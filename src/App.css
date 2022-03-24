@@ -3,12 +3,14 @@ body{
   font-family: 'Raleway', sans-serif;
 }
 
-#loanOrReturn-btn{
+.btn{
   background-color: #b8aea8;
   border: none;
   border-radius: 10px;
   color: white;
   text-decoration: none;
+  margin-top: 25px;
+  margin-right: 10px;
   padding: 15px 32px;
   text-align: center;
   text-decoration: none;
@@ -18,8 +20,13 @@ body{
   /* margin-top: -300px; */
 }
 
+.btn:hover{
+  background-color: #8a817c;
+  cursor:pointer;
+}
+
 #navbar {
-  background-color: #b8aea8;
+  background-color: #291C16;
   display: flex;
   align-items: center;
   justify-content: space-around;

@@ -4,7 +4,6 @@ import AuthorsOptions from '../container/AuthorsOptions';
 import CustomerOptions from '../container/CustomersOptions';
 import Navbar from '../container/NavBar';
 import yangEOTM from '../images/yangEOTM.jpeg';
-import bookLogo from '../images/bookLogo.png';
 import './Manager.css';
 
 const Manager = ({allBooks , addBookToDatabase, deleteBookById, getBookById, bookById, updateBookById, allAuthors, addAuthorToDatabase, deleteAuthorById, updateAuthorById, allCustomers, addCustomerToDatabase, deleteCustomerById, updateCustomerById}) => {
@@ -34,9 +33,9 @@ const Manager = ({allBooks , addBookToDatabase, deleteBookById, getBookById, boo
                     <p>"Hahaha thank you" -Yang</p>
                     <br/>
                     <h2>Please select the directory you would like to access:</h2>
-                    <button onClick={handleSetBooksSelected}>Books</button>
-                    <button onClick={handleSetAuthorsSelected}>Authors</button>
-                    <button onClick={handleSetCustomersSelected}>Customers</button>
+                    <button className="btn" onClick={handleSetBooksSelected}>Books</button>
+                    <button className="btn" onClick={handleSetAuthorsSelected}>Authors</button>
+                    <button className="btn" onClick={handleSetCustomersSelected}>Customers</button>
 
                 </div>
                 <section id="manager-main-section">
@@ -63,7 +62,7 @@ const Manager = ({allBooks , addBookToDatabase, deleteBookById, getBookById, boo
                             />
                             : <p></p>}
                         {customersSelected ?
-                            <CustomerOptions
+                            <CustomerOptions 
                                 allCustomers={allCustomers}
                                 addCustomerToDatabase={addCustomerToDatabase}
                                 deleteCustomerById={deleteCustomerById}
@@ -73,40 +72,6 @@ const Manager = ({allBooks , addBookToDatabase, deleteBookById, getBookById, boo
                     </div>
                 </section>
             </section>
-            
-                {/* <nav>
-                    <button onClick={handleSetBooksSelected}>Books</button>
-                    {booksSelected ? 
-                    <BooksOptions 
-                    allBooks={allBooks} 
-                    addBookToDatabase={addBookToDatabase}
-                    deleteBookById={deleteBookById}
-                    getBookById={getBookById}
-                    bookById={bookById}
-                    updateBookById={updateBookById}
-                    /> 
-                    : <p>View, Add, Update and Delete from the Books Directory.</p>}
-
-                    <button onClick={handleSetAuthorsSelected}>Authors</button>
-                    {authorsSelected ? 
-                    <AuthorsOptions
-                    allAuthors={allAuthors}
-                    addAuthorToDatabase={addAuthorToDatabase}
-                    deleteAuthorById={deleteAuthorById}
-                    updateAuthorById={updateAuthorById}
-                    /> 
-                    : <p>View, Add, Update and Delete from the Authors Directory.</p>}
-                    
-                    <button onClick={handleSetCustomersSelected}>Customers</button>
-                    {customersSelected ? 
-                    <CustomerOptions
-                    allCustomers={allCustomers}
-                    addCustomerToDatabase={addCustomerToDatabase}
-                    deleteCustomerById={deleteCustomerById}
-                    updateCustomerById={updateCustomerById}
-                    />
-                    : <p>View, Add, Update and Delete from the Customers Directory.</p>}
-                </nav>     */}
         </>
     )
 }

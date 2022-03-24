@@ -22,7 +22,7 @@ const Home = ({isManager}) => {
         </section>    */}
 
         <section className="home-staff-login">
-            <button id="home-staff-login-btn">
+            <button className="btn">
                 <Link to="/manager" onClick={handleIsManager}>Staff Login</Link>
             </button>
         </section>
@@ -57,7 +57,7 @@ const Home = ({isManager}) => {
         
 
         <section className="loanOrReturn-container">
-            <button id="loanOrReturn-btn">
+            <button className="btn">
                 <Link to="/customer" onClick={handleIsCustomer}>Loan or Return a Book</Link>
             </button>
         </section>

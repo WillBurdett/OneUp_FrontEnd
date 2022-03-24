@@ -46,12 +46,13 @@ const AuthorsOptions = ({allAuthors, addAuthorToDatabase, deleteAuthorById, upda
         <>
         <ul>
             {/* make these a dropdown menu on hover */}
-            <button onClick={handleViewAllAuthors}>View all authors</button>
-            <button onClick={handleAddNewAuthor}>Add a new author</button>
-            <button onClick={handleGetAuthorById}>Find an author by Id</button>
-            <button onClick={handleUpdateAuthorById}>Update an author by Id</button>
-            <button onClick={handleDeleteAuthorById}>Delete an author by Id</button>
+            <button className="btn" onClick={handleViewAllAuthors}>View all authors</button>
+            <button className="btn" onClick={handleAddNewAuthor}>Add a new author</button>
+            <button className="btn" onClick={handleGetAuthorById}>Find an author by Id</button>
+            <button className="btn" onClick={handleUpdateAuthorById}>Update an author by Id</button>
+            <button className="btn" onClick={handleDeleteAuthorById}>Delete an author by Id</button>
         </ul>
+        <hr/>
         <section>
             {viewAllAuthors ? <ViewAllAuthors allAuthors={allAuthors}/> : null}
             {addNewAuthor ? <AddNewAuthor allAuthors={allAuthors} addAuthorToDatabase={addAuthorToDatabase}/> : null}

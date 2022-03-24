@@ -3,13 +3,26 @@
 }
 
 #yang{
+    padding-top: 30px;
     border-radius: 50%;
+    padding-right: 30px;
 }
 
 #manager-main-section{
     width: 100%;
+    border-left: 1px solid black;
 }
 
 #manager-sidebar{
-    padding-left: 50px;
+    padding-left: 30px;
+}
+
+#book-container{
+    display:flex;
+    flex-wrap: wrap;
+    padding-left: 30px;
+}
+
+#options{
+    padding-bottom: 30px;
 }
