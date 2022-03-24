@@ -9,6 +9,14 @@ import Book from '../components/book-components/Book';
 
 const Customer = ({allBooks, availableBooks, unavailableBooks, loanBook, returnBook}) => {
 
+
+    const booksOnShelf = document.querySelectorAll(".book2"); 
+    // const bookShelfChildren = booksOnShelf.parentNode.ch
+
+    const shelfArray = ["x", "x", "x", "x"]
+
+
+
     const [idToReturn, setIdToReturn] = useState(0)
     const [idOfBookToBorrow, setIdOfBookToBorrow] = useState(0)
     const [idOfUserToBorrow, setIdOfUserToBorrow] = useState(0)
@@ -45,11 +53,30 @@ const Customer = ({allBooks, availableBooks, unavailableBooks, loanBook, returnB
     const handleBorrowBookById = event => {
         event.preventDefault()
 
+        checkToRemoveBook();
+
         loanBook(idOfUserToBorrow, idOfBookToBorrow)
 
         setIdOfBookToBorrow(0);
         setIdOfUserToBorrow(0);
     }
+
+    const checkToRemoveBook = () => {
+        for (let i=shelfArray.length-1; i>=0; i--){
+            if (shelfArray[i] === "x"){
+                shelfArray[i] = ""
+                console.log("found book")
+                console.log(booksOnShelf)
+                booksOnShelf[i].classList.add("hide")
+                return i;
+            }
+        }
+        return null;
+    }
+    
+
+    // const loanButtonListener = document.querySelector("#customer-loan_button");
+    // loanButtonListener.addEventListener("click", () => checkToRemoveBook())
 
     return (
         <>  
@@ -59,6 +86,17 @@ const Customer = ({allBooks, availableBooks, unavailableBooks, loanBook, returnB
             <p>Explore our delightful selection of books and hopefully you'll find just what you're looking for. Whether you read for leisure, education purposes or entertainment - we hope to have you covered.</p>
             <p>If you require an library membership, please contact one of our friendly staff to sign you up!</p>
         </section>
+
+       <div className="book2-animation_container" dangerouslySetInnerHTML={{__html: `
+        <div class="bookshelf2">
+            <div class="books2"> 
+                <div class="book2" style="--bg-image: url(https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1581128232l/50214741.jpg);"></div>
+                <div class="book2" style="--bg-image: url(https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1544204706l/42505366.jpg);"></div>
+                <div class="book2" style="--bg-image: url(https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1541621322l/42201395.jpg);"></div>
+                <div class="book2" style="--bg-image: url(https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1548518877l/43263520._SY475_.jpg);"></div>
+            </div>
+        </div>
+        `}} />
 
         
         {/* Books display */}
@@ -88,7 +126,7 @@ const Customer = ({allBooks, availableBooks, unavailableBooks, loanBook, returnB
                         <label htmlFor="borrowId">Id of the Book you would like to borrow:</label>
                         <input type="text" id="borrowId" value={idOfBookToBorrow} onChange={handleBookIdToBorrow}/>
 
-                        <input className='customer-borrow_btn' type="submit" value="Borrow"/>
+                        <input id="customer-loan_button" className='customer-borrow_btn' type="submit" value="Borrow"/>
                     </form>
                 </div> 
             </section>
