@@ -4,7 +4,7 @@
    
 }
 .container{
-    max-width: 900px;
+    max-width: 2500px;
     margin: 0;
 }
 ul{
@@ -20,7 +20,7 @@ ul{
     padding: 0 20px;
 }
 .footer-col h4{
-    font-size: 18px;
+    font-size: 24px;
     color: #ffff;
     text-transform:capitalize;
     margin-bottom: 10px;
@@ -29,18 +29,18 @@ ul{
 .footer-col h4::before{
     content: '';
     position: absolute;
-    left: 0;
+    left: -20;
     bottom: -5px;
     background-color: #F7EFEE;
     height: 2px;
     box-sizing: border-box;
-    width: 150px;
+    width: 80px;
 }
 .footer-col ul li:not(:last-child){
     margin-bottom: 15px;
 }
 .footer-col ul li a{
-    font-size: 16px;
+    font-size: 20px;
     text-transform: capitalize;
     color: #ffff;
     text-decoration: none;
@@ -51,19 +51,75 @@ ul{
 }
 .footer-col ul li a:hover{
     color: #ffff;
-    padding-left: 10px;
+    padding-left: 20px;
 }
 .footer-col .social-links a{
     display: inline-block;
-    height: 40px;
-    width: 40px;
+    height: 75px;
+    width: 75px;
     background-color: rgba(255, 255, 255, 0.2);
-    margin: 0 10px 10px 0;
+    margin: 0 20px 20px 0;
     text-align: center;
-    line-height: 40px;
+    line-height: 75px;
     border-radius: 50%;
     color: #ffff;
     transition: all 0.5s ease;
 }
+
+.footer-col .social-links a:hover{
+    color: #24262b;
+    background-color: #ffff;
+    align-items: center;
+}
+
+/* responsive */
+@media(max-width: 767px){
+    .footer-col {
+        width: 25%;
+        margin-bottom: 15px;
+    }
+}
+
+.footer-description{
+    font-size: 18px;
+    color: #ffff;
+    margin-bottom: 20;
+}
+
+.social-media-icons{
+    width: 20px;
+    height: auto;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px;
+
+}
+
+
+/*
+.Twitter{
+
+    width: 25px;
+    height: auto;
+    align-items: center;
+}
+
+.Facebook{
+
+    width: 15px;
+    height: auto;
+    align-items: center;
+}
+.Instagram{
+
+    width: 25px;
+    height: px;
+    align-items: center;
+}
+.Youtube{
+
+    width: 30px;
+    height: 30px;
+} */
 
 
