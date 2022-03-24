@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import './App.css';
-import { Route, Routes, BrowserRouter} from "react-router-dom";
+import { Navigate, Route, Routes, BrowserRouter} from "react-router-dom";
 import Home from './pages/Home';
 import CustomerOrManager from './container/CustomerOrManager';
+import ScrollToTop from './components/user-components/ScrollToTop';
 
 
 
@@ -17,8 +18,10 @@ function App() {
      <>
      <BrowserRouter>
        <Routes>
-        <Route path="/" exact element={<Home isManager={optionIsManager}/>}/>
-        <Route path="/manager" exact element={<CustomerOrManager isManager={isManager}/>}/>
+       <Route path="/" exact element={<Navigate replace to="/home" isManager={optionIsManager}/>}/>
+        <Route path="/home" exact element={<Home isManager={optionIsManager}/>}/>
+        <Route path="/manager?" exact element={<Navigate replace to="/manager" isManager={optionIsManager}/>}/>
+        <Route path="/manager" exact element={<CustomerOrManager isManager={true}/>}/>
         <Route path="/customer" exact element={<CustomerOrManager isManager={isManager}/>}/>
       </Routes>
     </BrowserRouter> 

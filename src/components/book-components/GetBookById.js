@@ -25,9 +25,9 @@ const GetBookById = ({getBookById, bookById, allBooks}) => {
         getBookById(idToGet);
 
         setTimeout(() =>{
-        if (bookById == null || bookById == undefined){
+        if (bookById === null || bookById === undefined){
             setShowBook(false);
-        } else if ( bookById != undefined || bookById != []){
+        } else if ( bookById !== undefined || bookById !== []){
             setShowBook(true)
         }
         console.log("loading...")
@@ -56,7 +56,6 @@ const GetBookById = ({getBookById, bookById, allBooks}) => {
 
             <input type="submit" value="Get book"/>
         </form>
-
         {showBook && bookById != undefined ? <Book key={foundBook.bookId} book={foundBook}/> : null }
         {/* {bookById[0]} */}
         {/* <Book key={foundBook.bookId} book={foundBook}/> */}

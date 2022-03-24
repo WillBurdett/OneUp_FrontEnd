@@ -91,7 +91,8 @@ const CustomerOrManager = ({ isManager }) => {
         })
             .then((response) => response.json())
             .then(result => setBookById([result.bookId, result.title, result.genre, result.authorId, result.userID, result.loaned.toString(), result.isbn])) 
-            .catch((error) => alert("Book with " + id + " not found."));
+            .catch((error) => alert("Book with id " + id + " not found."));
+            
     };
 
    //---------------------------------------------

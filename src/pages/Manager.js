@@ -3,8 +3,10 @@ import BooksOptions from '../container/BooksOptions';
 import AuthorsOptions from '../container/AuthorsOptions';
 import CustomerOptions from '../container/CustomersOptions';
 
+
 const Manager = ({allBooks , addBookToDatabase, deleteBookById, getBookById, bookById, updateBookById, allAuthors, addAuthorToDatabase, deleteAuthorById, updateAuthorById, allCustomers, addCustomerToDatabase, deleteCustomerById, updateCustomerById}) => {
 
+    
     const  [booksSelected, setBooksSelected] = useState(false);
     const  [authorsSelected, setAuthorsSelected] = useState(false);
     const  [customersSelected, setCustomersSelected] = useState(false);
