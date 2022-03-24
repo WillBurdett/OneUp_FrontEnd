@@ -17,6 +17,7 @@ function App() {
   return (
      <>
      <BrowserRouter>
+     <ScrollToTop/>
        <Routes>
        <Route path="/" exact element={<Navigate replace to="/home" isManager={optionIsManager}/>}/>
         <Route path="/home" exact element={<Home isManager={optionIsManager}/>}/>
