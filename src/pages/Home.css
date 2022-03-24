@@ -61,8 +61,20 @@ a:active {
 
 #home-staff-login-btn{
     background-color: #b8aea8;
+    /* background-color: #776472; */
+    border: none;
+    border-radius: 10px;
     color: white;
-    padding-right: 15px;
+    text-decoration: none;
+    padding: 15px 32px;
+    margin-bottom: 10px;
+    text-align: center;
+    text-decoration: none;
+    color: white;
+    display: inline-block;
+    font-size: 16px;
+    color: white;
+    /* padding-right: 15px; */
 }
 
 .main-title{

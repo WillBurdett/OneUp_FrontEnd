@@ -1,7 +1,69 @@
 body{
   background-color: #f7efee;
   font-family: 'Raleway', sans-serif;
+  padding-top: 10px;
 }
+
+#home-staff-login-btn{
+  /* background-color: #b8aea8; */
+  /* background-color: #776472;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  text-decoration: none;
+  padding: 15px 32px;
+  margin-bottom: 10px;
+  text-align: center;
+  text-decoration: none;
+  color: white;
+  display: inline-block;
+  font-size: 16px; */
+  /* margin-top: -300px; */
+}
+
+#navbar {
+  /* background-color: #b8aea8; */
+  background-color: #291C16;
+  display: flex;
+  align-items: center;
+  /* justify-content: space-around; */
+}
+
+.nav-logo {
+  padding-left: 30px;
+}
+
+#navbar-list {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  list-style-type: none;
+  /* background-color: var(--orange); */
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-left: 100rem;
+}
+
+/* #navbar-list::before {
+  margin-left: 6rem; 
+
+} */
+
+.navitem a {
+  color: var(--dark-green);
+  text-decoration: none;
+  /* font-weight: bold; */
+  font-size: 20px;
+}
+
+.navitem a:hover {
+  /* color: #3f3c3a; */
+  color: #b8aea8;
+  /* font-weight: bold;  */
+  text-decoration: underline;
+}
+
+/* background-color: #b8aea8; */
 
 #loanOrReturn-btn{
   background-color: #b8aea8;
@@ -17,28 +79,3 @@ body{
   font-size: 16px;
   /* margin-top: -300px; */
 }
-
-#navbar {
-  background-color: #b8aea8;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  list-style-type: none;
-  /* background-color: var(--orange); */
-  padding-top: 10px;
-  padding-bottom: 10px;
-}
-
-.navitem a {
-  color: var(--dark-green);
-  text-decoration: none;
-  font-weight: bold;
-  font-size: 20px;
-}
-
-.navitem a:hover {
-  color: #3f3c3a;
-  font-weight: bold;
-}
-
-/* background-color: #b8aea8; */
