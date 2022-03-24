@@ -1,14 +1,83 @@
+.customer-headings_container{
+    margin-top: 2%;
+    margin-bottom: 2%;
+    padding-bottom: 2%;
+    border-top: rgb(255, 255, 255) solid 2px;
+    border-bottom: rgb(255, 255, 255) solid 2px;
+    color: #291C16;
+}
+
+
 .customer-loan_and_return_containers{
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    margin-top: 0;
+    height: 20%;
+}
+
+.customer-return_all_container{
+    display: flex;
+    justify-content: space-around;
+    background-color: #DDCEC8;
+    margin-top: 4%;
+    margin-left: 6%;
+    margin-right: 6%;
+    margin-bottom: 1%;
+    padding-top: 2em;
+    padding-bottom: 2em;
+    border: solid white 5px;
+}
+
+#customer_return_form{
+    margin-left: 130px;
+    margin-top: 80px;
+    margin-right: 45px;
 }
 
 
 .customer-borrow_all_container{
     display: flex;
     justify-content: space-around;
-    background-color: #b8aea8;
+    background-color: #DDCEC8;
+    margin-top: 1%;
+    margin-left: 6%;
+    margin-right: 6%;
+    margin-bottom: 1%;
+    padding-top: 2em;
+    padding-bottom: 2em;
+    border: solid white 5px;
 }
+
+.customer-borrow_btn{
+    background-color: #b8aea8;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    text-decoration: none;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    color: white;
+    display: inline-block;
+    font-size: 16px;
+    /* margin-top: -300px; */
+  }
+  .customer-return_btn{
+    background-color: #b8aea8;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    text-decoration: none;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    color: white;
+    display: inline-block;
+    font-size: 16px;
+    margin-bottom: 0;
+    /* margin-top: -300px; */
+  }
+
 
 .customer-borrow_text_container{
     color: white;
@@ -16,10 +85,43 @@
 
 .customer-form-img{
     max-width: 500px;
+    margin-left: 100px;
+    margin-right: 100px;
+    border: solid white 5px;
 }
 .available-filter{
     text-align: center;
 }
 .available-filter-on{
-    background-color: #b8aea8;
+    background-color: #473527;;
+}
+
+.customer-borrow_return_form input[type=text]{
+  width: 100%;
+  padding: 50px 80px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+  text-align: center;
+  margin-right: 50px;
+}
+
+.customer-return_btn:hover{
+    background-color: #473527;
+}
+
+.customer-borrow_return_form{
+    margin-right: 100px;
+}
+.customer-borrow_return_form input[type=submit]:hover {
+    background-color: #473527;
+  }
+
+.customer-bookid_warning{
+    margin-top: -20px;
+    margin-bottom: 10px;
 }

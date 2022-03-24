@@ -3,6 +3,7 @@ import Navbar from "../container/NavBar";
 import FooterBar from "../container/FooterBar";
 import './Customer.css'
 import './Home.css'
+import '../App.css'
 import ViewAllBooks from '../components/book-components/ViewAllBooks';
 import Book from '../components/book-components/Book';
 
@@ -20,18 +21,11 @@ const Customer = ({allBooks, availableBooks, unavailableBooks, loanBook, returnB
     const handleBookIdToBorrow = event => setIdOfBookToBorrow(event.target.value);
     const handleUserIdToBorrow = event => setIdOfUserToBorrow(event.target.value);
 
-
-    const resetBooksShown = () => {
-        setShowAllBooks(false);
-        // setAvailableBooks(false);
-    }
-
     const handleViewAllBooks = () => {
-        resetBooksShown();
         showAllBooks ? setShowAllBooks(false) : setShowAllBooks(true);
     }
+    
     const handleViewAvailableBooks = () => {
-        // resetBooksShown();
         if (showAvailableBooks){
             availableFilter.classList.remove("available-filter-on")
             setAvailableBooks(false) 
@@ -62,14 +56,16 @@ const Customer = ({allBooks, availableBooks, unavailableBooks, loanBook, returnB
         <Navbar/>
         <section className="customer-headings_container">
             <h1 className="main-title">Loan and return books!</h1>
-            <p>Something about exploring the books at home or on holiday. If you require an account, please ask one of our friendly staff to sign you up!</p>
+            <p>Explore our delightful selection of books and hopefully you'll find just what you're looking for. Whether you read for leisure, education purposes or entertainment - we hope to have you covered.</p>
+            <p>If you require an library membership, please contact one of our friendly staff to sign you up!</p>
         </section>
+
         
         {/* Books display */}
         <section className='customer-books-container'>
             <div>
-                <button onClick={handleViewAllBooks}>View All Books</button>
-                {showAllBooks ?  <> <button className="available-filter" onClick={handleViewAvailableBooks}>Filter By Available Books</button> </>: null}
+                <button className="customer-return_btn" onClick={handleViewAllBooks}>View All Books</button>
+                {showAllBooks ?  <> <button className="available-filter customer-return_btn" onClick={handleViewAvailableBooks}>Filter By Available Books</button> </>: null}
                {showAllBooks && !showAvailableBooks ? <> {availableBooks} {unavailableBooks} </> : null}
                {showAllBooks && showAvailableBooks ? <> {availableBooks} </> : null}
             </div>
@@ -82,15 +78,17 @@ const Customer = ({allBooks, availableBooks, unavailableBooks, loanBook, returnB
                     <img className="customer-form-img" id="customer-holiday_img" src="http://fdlbooksalon.com/wp-content/uploads/2017/11/reading-is-boss.png" alt="lady reading a book on the beach while laying in a hammock"/>
                 </div>       
                 <div className="customer-borrow_form_container">  
-                    <h2>Loan a book</h2>
-                    <form onSubmit={handleBorrowBookById}>
+                    
+                    <form className="customer-borrow_return_form"onSubmit={handleBorrowBookById}>
+                        <h2>Loan a book</h2>
+                        <div className='customer-bookid_warning'><em>*Forgot your Id? No problem. Our staff will gladly help</em></div>
                         <label htmlFor="userId">Please enter your User Id:</label>
                         <input type="text" id="userId" value={idOfUserToBorrow} onChange={handleUserIdToBorrow}/>
 
                         <label htmlFor="borrowId">Id of the Book you would like to borrow:</label>
                         <input type="text" id="borrowId" value={idOfBookToBorrow} onChange={handleBookIdToBorrow}/>
 
-                        <input type="submit" value="Borrow"/>
+                        <input className='customer-borrow_btn' type="submit" value="Borrow"/>
                     </form>
                 </div> 
             </section>
@@ -98,11 +96,14 @@ const Customer = ({allBooks, availableBooks, unavailableBooks, loanBook, returnB
 
             <section className="customer-return_all_container"> 
                 <div className ="customer-return_form_container">
-                    <form onSubmit={handleReturnBookById}>
+                    <form id="customer_return_form"className="customer-borrow_return_form" onSubmit={handleReturnBookById}>
+                    <h2>Return a book</h2> 
+                    <div className='customer-bookid_warning'><em>*Book Id found in the inside of the front cover</em></div>
+                    
                         <label htmlFor="returnId">Id of the Book you would like to return:</label>
                         <input type="text" id="returnId" value={idToReturn} onChange={handleIdToReturn}/>
 
-                        <input type="submit" value="Return"/>
+                        <input className="customer-return_btn" type="submit" value="Return"/>
                     </form>
                 </div>
                 <div className="customer-return_img_container">
