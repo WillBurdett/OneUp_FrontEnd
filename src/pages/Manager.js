@@ -6,8 +6,10 @@ import Navbar from '../container/NavBar';
 import yangEOTM from '../images/yangEOTM.jpeg';
 import './Manager.css';
 
+
 const Manager = ({allBooks , addBookToDatabase, deleteBookById, getBookById, bookById, updateBookById, allAuthors, addAuthorToDatabase, deleteAuthorById, updateAuthorById, allCustomers, addCustomerToDatabase, deleteCustomerById, updateCustomerById}) => {
 
+    
     const  [booksSelected, setBooksSelected] = useState(false);
     const  [authorsSelected, setAuthorsSelected] = useState(false);
     const  [customersSelected, setCustomersSelected] = useState(false);

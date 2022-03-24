@@ -1,14 +1,83 @@
+.customer-headings_container{
+    margin-top: 2%;
+    margin-bottom: 2%;
+    padding-bottom: 2%;
+    border-top: rgb(255, 255, 255) solid 2px;
+    border-bottom: rgb(255, 255, 255) solid 2px;
+    color: #291C16;
+}
+
+
 .customer-loan_and_return_containers{
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    margin-top: 0;
+    height: 20%;
+}
+
+.customer-return_all_container{
+    display: flex;
+    justify-content: space-around;
+    background-color: #DDCEC8;
+    margin-top: 4%;
+    margin-left: 6%;
+    margin-right: 6%;
+    margin-bottom: 1%;
+    padding-top: 2em;
+    padding-bottom: 2em;
+    border: solid white 5px;
+}
+
+#customer_return_form{
+    margin-left: 130px;
+    margin-top: 80px;
+    margin-right: 45px;
 }
 
 
 .customer-borrow_all_container{
     display: flex;
     justify-content: space-around;
-    background-color: #b8aea8;
+    background-color: #DDCEC8;
+    margin-top: 1%;
+    margin-left: 6%;
+    margin-right: 6%;
+    margin-bottom: 1%;
+    padding-top: 2em;
+    padding-bottom: 2em;
+    border: solid white 5px;
 }
+
+.customer-borrow_btn{
+    background-color: #b8aea8;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    text-decoration: none;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    color: white;
+    display: inline-block;
+    font-size: 16px;
+    /* margin-top: -300px; */
+  }
+  .customer-return_btn{
+    background-color: #b8aea8;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    text-decoration: none;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    color: white;
+    display: inline-block;
+    font-size: 16px;
+    margin-bottom: 0;
+    /* margin-top: -300px; */
+  }
+
 
 .customer-borrow_text_container{
     color: white;
@@ -16,4 +85,127 @@
 
 .customer-form-img{
     max-width: 500px;
+    margin-left: 100px;
+    margin-right: 100px;
+    border: solid white 5px;
 }
+.available-filter{
+    text-align: center;
+}
+.available-filter-on{
+    background-color: #473527;;
+}
+
+.customer-borrow_return_form input[type=text]{
+  width: 100%;
+  padding: 50px 80px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+  text-align: center;
+  margin-right: 50px;
+}
+
+.customer-return_btn:hover{
+    background-color: #473527;
+}
+
+.customer-borrow_return_form{
+    margin-right: 100px;
+}
+.customer-borrow_return_form input[type=submit]:hover {
+    background-color: #473527;
+  }
+
+.customer-bookid_warning{
+    margin-top: -20px;
+    margin-bottom: 10px;
+}
+
+/* ........... CUSTOMER BOOKSHELF TESTING............. */
+
+.book2-animation_container {
+    display: flex;
+    align-items: center;
+    min-height: 50%;
+    margin-top: 20%;
+    margin-bottom: 5%;
+    justify-content: center;
+    position: relative;
+    padding-bottom:none;
+    border-bottom: none;
+    pointer-events: all;
+}
+.bookshelf2 {
+    max-width: 1000px;
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    flex-shrink: 0;
+    z-index: -1;
+    position: relative;
+    height: 0px;
+    border-bottom: 16px solid #f3f3f3;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    pointer-events: all;
+}
+.bookshelf2::before {
+    content: "";
+    position: absolute;
+    top: 16px;
+    background: linear-gradient(90deg, #291C16 0%, #412b21 100%);
+    height: 26px;
+    width: calc(100% + 40px);
+    box-shadow: 0px -1px 6px rgba(0, 0, 0, 0.05), 0px 4px 16px rgba(0, 0, 0, 0.25);
+    z-index: 2;
+}
+
+.books2 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10%;
+    width: 80%;
+    margin: auto;
+    transform: translateY(-100%);
+    padding: 0 0 2px;
+    z-index: -1;
+    position: relative;
+    top: 10px;
+}
+.book2 {
+    --bg-image: url("https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1581128232l/50214741.jpg");
+    width: 100%;
+    border-radius: 3px 0.5px 0.5px 3px;
+    aspect-ratio: 0.6388888889;
+    position: relative;
+}
+
+.hide{
+    display: none;
+}
+
+
+
+.book2::before, .book2::after {
+    position: absolute;
+    width: 100%;
+    display: block;
+    content: " ";
+    background: var(--bg-image) center center/cover no-repeat, #f3f3f3;
+}
+.book2::before {
+    height: 100%;
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.25), inset 2px 0px 2px 1px rgba(29, 27, 27, 0.2);
+}
+.book2::after {
+    height: 102%;
+    filter: blur(10px);
+    z-index: -1;
+    opacity: 1;
+} 
+ 

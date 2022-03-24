@@ -5,6 +5,7 @@ import Book from "../components/book-components/Book";
 import Author from "../components/author-components/Authors";
 import Customers from "../components/customer-components/Customers";
 
+
 const CustomerOrManager = ({ isManager }) => {
     // All 'Book' state is loaded here to be parsed as both Manager and Customer
     // need access to books (for viewing, borrowing and returning purposes).
@@ -91,7 +92,8 @@ const CustomerOrManager = ({ isManager }) => {
         })
             .then((response) => response.json())
             .then(result => setBookById([result.bookId, result.title, result.genre, result.authorId, result.userID, result.loaned.toString(), result.isbn])) 
-            .catch((error) => alert("Book with " + id + " not found."));
+            .catch((error) => alert("Book with id " + id + " not found."));
+            
     };
 
    //---------------------------------------------
