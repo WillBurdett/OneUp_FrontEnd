@@ -113,8 +113,8 @@ const Customer = ({allBooks, availableBooks, unavailableBooks, loanBook, returnB
             <div>
                 <button className="customer-return_btn" onClick={handleViewAllBooks}>View All Books</button>
                 {showAllBooks ?  <> <button className="available-filter customer-return_btn" onClick={handleViewAvailableBooks}>Filter By Available Books</button> </>: null}
-               {showAllBooks && !showAvailableBooks ? <> {availableBooks} {unavailableBooks} </> : null}
-               {showAllBooks && showAvailableBooks ? <> {availableBooks} </> : null}
+                {showAllBooks && !showAvailableBooks ? <> {availableBooks} {unavailableBooks} </> : null}
+                {showAllBooks && showAvailableBooks ? <> {availableBooks} </> : null}
             </div>
         </section>
 
