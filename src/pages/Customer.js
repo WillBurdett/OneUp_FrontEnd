@@ -11,12 +11,11 @@ const Customer = ({allBooks, availableBooks, unavailableBooks, loanBook, returnB
 
 
     const booksOnShelf = document.querySelectorAll(".book2"); 
-    // const bookShelfChildren = booksOnShelf.parentNode.ch
 
     const shelfArray = ["x", "x", "x", "x"]
 
 
-
+    const [bookShelfState, setBookShelfState] = useState(shelfArray)
     const [idToReturn, setIdToReturn] = useState(0)
     const [idOfBookToBorrow, setIdOfBookToBorrow] = useState(0)
     const [idOfUserToBorrow, setIdOfUserToBorrow] = useState(0)
@@ -45,6 +44,9 @@ const Customer = ({allBooks, availableBooks, unavailableBooks, loanBook, returnB
     
     const handleReturnBookById = event => {
         event.preventDefault()
+
+        checkToReturnBook()
+        
         returnBook(idToReturn)
         
         setIdToReturn(0)
@@ -62,21 +64,28 @@ const Customer = ({allBooks, availableBooks, unavailableBooks, loanBook, returnB
     }
 
     const checkToRemoveBook = () => {
-        for (let i=shelfArray.length-1; i>=0; i--){
-            if (shelfArray[i] === "x"){
+        for (let i=bookShelfState.length-1; i>=0; i--){
+            if (bookShelfState[i] === "x"){
                 shelfArray[i] = ""
-                console.log("found book")
-                console.log(booksOnShelf)
+                setBookShelfState(shelfArray)
                 booksOnShelf[i].classList.add("hide")
                 return i;
             }
         }
         return null;
     }
-    
 
-    // const loanButtonListener = document.querySelector("#customer-loan_button");
-    // loanButtonListener.addEventListener("click", () => checkToRemoveBook())
+    const checkToReturnBook = () => {
+        for (let i=bookShelfState.length-1; i>=0; i--){
+            if (bookShelfState[i] === ""){
+                shelfArray[i] = "x"
+                setBookShelfState(shelfArray)
+                booksOnShelf[i].classList.remove("hide")
+                return i;
+            }
+        }
+        return null;
+    }
 
     return (
         <>  
