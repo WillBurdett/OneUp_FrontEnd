@@ -1,0 +1,15 @@
+#manager-main-container{
+    display: flex;
+}
+
+#yang{
+    border-radius: 50%;
+}
+
+#manager-main-section{
+    width: 100%;
+}
+
+#manager-sidebar{
+    padding-left: 50px;
+}
