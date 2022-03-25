@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import { Route, Routes, BrowserRouter} from "react-router-dom";
 import Home from './pages/Home';
 import CustomerOrManager from './container/CustomerOrManager';

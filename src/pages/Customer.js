@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
-import Navbar from "../container/NavBar";
+// import Navbar from "../container/NavBar";
+import BootstrapNavbar from "../components/BootstrapNavbar";
 import FooterBar from "../container/FooterBar";
 import './Customer.css'
 import './Home.css'
@@ -35,7 +36,7 @@ const Customer = ({allBooks, availableBooks, unavailableBooks, loanBook, returnB
 
     return (
         <>  
-        <Navbar/>
+        <BootstrapNavbar/>
         <section className="customer-headings_container">
             <h1 className="main-title">Loan and return books!</h1>
             <p>Something about exploring the books at home or on holiday. If you require an account, please ask one of our friendly staff to sign you up!</p>

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import BootstrapNavbar from "../components/BootstrapNavbar";
 import BooksOptions from '../container/BooksOptions';
 import AuthorsOptions from '../container/AuthorsOptions';
 import CustomerOptions from '../container/CustomersOptions';
@@ -21,6 +22,7 @@ const Manager = ({allBooks , addBookToDatabase, deleteBookById, getBookById, boo
 
     return(
         <>
+            <BootstrapNavbar/>
             <h1>Manager</h1>
             <h2>Please select the directory you would like to access:</h2>
                 <nav>

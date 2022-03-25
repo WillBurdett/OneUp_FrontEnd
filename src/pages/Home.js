@@ -1,8 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Navbar from "../container/NavBar";
+// import Navbar from "../container/NavBar";
 import FooterBar from "../container/FooterBar";
 import './Home.css'
+import Bootstrap from "bootstrap";
+import BootstrapNavbar from "../components/BootstrapNavbar";
 
 
 const Home = ({isManager}) => {
@@ -27,7 +29,8 @@ const Home = ({isManager}) => {
             </button>
         </section>
 
-        <Navbar/>
+        {/* <Navbar/> */}
+        <BootstrapNavbar/>
         <section className="home-headings_container">
             <h1 className="main-title">Welcome to <span id="home-1up">1-Up</span> library!</h1>
             <h2>'Opening the door to knowledge'</h2>
