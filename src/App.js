@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
 import './App.css';
 import { Navigate, Route, Routes, BrowserRouter} from "react-router-dom";
+import 'bootstrap/dist/css/bootstrap.min.css';
 import Home from './pages/Home';
 import CustomerOrManager from './container/CustomerOrManager';
 import ScrollToTop from './components/user-components/ScrollToTop';
-
-
 
 
 function App() {

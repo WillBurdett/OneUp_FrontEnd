@@ -45,11 +45,11 @@ const CustomerOptions = ({allCustomers, addCustomerToDatabase, deleteCustomerByI
         <>
         <ul>
             {/* make these a dropdown menu on hover */}
-            <button className="btn" onClick={handleViewAllCustomers}>View all customers</button>
-            <button className="btn" onClick={handleAddNewCustomer}>Add a new customer</button>
-            <button className="btn" onClick={handleFindCustomerById}>Find a Customer by Id</button>
-            <button className="btn" onClick={handleUpdateCustomerById}>Update a customer by Id</button>
-            <button className="btn" onClick={handleDeleteCustomerById}>Delete a customer by Id</button>
+            <button className="bttn" onClick={handleViewAllCustomers}>View all customers</button>
+            <button className="bttn" onClick={handleAddNewCustomer}>Add a new customer</button>
+            <button className="bttn" onClick={handleFindCustomerById}>Find a Customer by Id</button>
+            <button className="bttn" onClick={handleUpdateCustomerById}>Update a customer by Id</button>
+            <button className="bttn" onClick={handleDeleteCustomerById}>Delete a customer by Id</button>
         </ul>
         <hr/>
         <section>

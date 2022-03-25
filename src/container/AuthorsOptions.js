@@ -46,11 +46,11 @@ const AuthorsOptions = ({allAuthors, addAuthorToDatabase, deleteAuthorById, upda
         <>
         <ul>
             {/* make these a dropdown menu on hover */}
-            <button className="btn" onClick={handleViewAllAuthors}>View all authors</button>
-            <button className="btn" onClick={handleAddNewAuthor}>Add a new author</button>
-            <button className="btn" onClick={handleGetAuthorById}>Find an author by Id</button>
-            <button className="btn" onClick={handleUpdateAuthorById}>Update an author by Id</button>
-            <button className="btn" onClick={handleDeleteAuthorById}>Delete an author by Id</button>
+            <button className="bttn" onClick={handleViewAllAuthors}>View all authors</button>
+            <button className="bttn" onClick={handleAddNewAuthor}>Add a new author</button>
+            <button className="bttn" onClick={handleGetAuthorById}>Find an author by Id</button>
+            <button className="bttn" onClick={handleUpdateAuthorById}>Update an author by Id</button>
+            <button className="bttn" onClick={handleDeleteAuthorById}>Delete an author by Id</button>
         </ul>
         <hr/>
         <section>

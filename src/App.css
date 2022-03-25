@@ -3,7 +3,7 @@ body{
   font-family: 'Raleway', sans-serif;
 }
 
-.btn{
+.bttn{
   background-color: #b8aea8;
   border: none;
   border-radius: 10px;
@@ -14,24 +14,22 @@ body{
   padding: 15px 32px;
   text-align: center;
   text-decoration: none;
-  color: white;
   display: inline-block;
   font-size: 16px;
-  /* margin-top: -300px; */
+  z-index: 999;
 }
 
-.btn:hover{
+.bttn:hover{
   background-color: #8a817c;
   cursor:pointer;
 }
 
-#navbar {
+/* #navbar {
   background-color: #291C16;
   display: flex;
   align-items: center;
   justify-content: space-around;
   list-style-type: none;
-  /* background-color: var(--orange); */
   padding-top: 10px;
   padding-bottom: 10px;
 }
@@ -46,6 +44,6 @@ body{
 .navitem a:hover {
   color: #3f3c3a;
   font-weight: bold;
-}
+} */
 
 /* background-color: #b8aea8; */

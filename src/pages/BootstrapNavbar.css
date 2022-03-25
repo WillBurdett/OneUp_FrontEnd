@@ -1,0 +1,28 @@
+/* .navbar {
+    background-color: #291C16;
+} */
+
+#navbar {
+    background-color: #291C16;
+}
+
+/* .sticky-nav {
+    position: sticky;
+    top: 0;
+} */
+
+.nav-logo {
+    padding: 10px;
+}
+
+#home-link, #about-link, #contact-link {
+    color: white;
+    padding-left: 30px;
+    font-size: larger;
+    font-weight: bold;
+}
+
+#home-link:hover, #about-link:hover, #contact-link:hover {
+    color: #f7efee;
+    text-decoration: underline;
+}

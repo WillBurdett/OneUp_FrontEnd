@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import Navbar from "../container/NavBar";
 import FooterBar from "../container/FooterBar";
 import './Home.css'
+import '../App.css'
+import BootstrapNavbar from "../components/BootstrapNavbar";
 
 
 const Home = ({isManager}) => {
@@ -22,12 +24,12 @@ const Home = ({isManager}) => {
         </section>    */}
 
         <section className="home-staff-login">
-            <button className="btn">
+            <button className="bttn">
                 <Link to="/manager" onClick={handleIsManager}>Staff Login</Link>
             </button>
         </section>
 
-        <Navbar/>
+        <BootstrapNavbar/>
         <section className="home-headings_container">
             <h1 className="main-title">Welcome to <span id="home-1up">1-Up</span> library!</h1>
             <h2>'Opening the door to knowledge'</h2>
@@ -57,7 +59,7 @@ const Home = ({isManager}) => {
         
 
         <section className="loanOrReturn-container">
-            <button className="btn">
+            <button className="bttn">
                 <Link to="/customer" onClick={handleIsCustomer}>Loan or Return a Book</Link>
             </button>
         </section>

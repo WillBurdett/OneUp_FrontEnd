@@ -5,6 +5,7 @@ import CustomerOptions from '../container/CustomersOptions';
 import Navbar from '../container/NavBar';
 import yangEOTM from '../images/yangEOTM.jpeg';
 import './Manager.css';
+import BootstrapNavbar from '../components/BootstrapNavbar';
 
 
 const Manager = ({allBooks , addBookToDatabase, deleteBookById, getBookById, bookById, updateBookById, allAuthors, addAuthorToDatabase, deleteAuthorById, updateAuthorById, allCustomers, addCustomerToDatabase, deleteCustomerById, updateCustomerById}) => {
@@ -27,7 +28,7 @@ const Manager = ({allBooks , addBookToDatabase, deleteBookById, getBookById, boo
     return(
         <>
             <br/>
-            <Navbar/>
+            <BootstrapNavbar/>
             <section id="manager-main-container">
                 <div id="manager-sidebar">
                     <h3>Employee of the month</h3>
@@ -35,9 +36,9 @@ const Manager = ({allBooks , addBookToDatabase, deleteBookById, getBookById, boo
                     <p>"Hahaha thank you" -Yang</p>
                     <br/>
                     <h2>Please select the directory you would like to access:</h2>
-                    <button className="btn" onClick={handleSetBooksSelected}>Books</button>
-                    <button className="btn" onClick={handleSetAuthorsSelected}>Authors</button>
-                    <button className="btn" onClick={handleSetCustomersSelected}>Customers</button>
+                    <button className="bttn" onClick={handleSetBooksSelected}>Books</button>
+                    <button className="bttn" onClick={handleSetAuthorsSelected}>Authors</button>
+                    <button className="bttn" onClick={handleSetCustomersSelected}>Customers</button>
 
                 </div>
                 <section id="manager-main-section">

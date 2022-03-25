@@ -6,6 +6,7 @@ import './Home.css'
 import '../App.css'
 import ViewAllBooks from '../components/book-components/ViewAllBooks';
 import Book from '../components/book-components/Book';
+import BootstrapNavbar from '../components/BootstrapNavbar';
 
 const Customer = ({allBooks, availableBooks, unavailableBooks, loanBook, returnBook}) => {
 
@@ -89,7 +90,7 @@ const Customer = ({allBooks, availableBooks, unavailableBooks, loanBook, returnB
 
     return (
         <>  
-        <Navbar/>
+        <BootstrapNavbar/>
         <section className="customer-headings_container">
             <h1 className="main-title">Loan and return books!</h1>
             <p>Explore our delightful selection of books and hopefully you'll find just what you're looking for. Whether you read for leisure, education purposes or entertainment - we hope to have you covered.</p>
