@@ -31,7 +31,7 @@ const Home = ({isManager}) => {
 
         <BootstrapNavbar/>
         <section className="home-headings_container">
-            <h1 className="main-title">Welcome to <span id="home-1up">1-Up</span> library!</h1>
+            <h1 id="home-title" className="main-title">Welcome to <span id="home-1up">1-Up</span> library!</h1>
             <h2>'Opening the door to knowledge'</h2>
         </section>
         <>

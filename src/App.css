@@ -1,7 +1,16 @@
+*{
+  font-family: 'Raleway', sans-serif;
+}
+
 body{
   background-color: #f7efee;
   font-family: 'Raleway', sans-serif;
 }
+#home-title{
+  font-family: 'Raleway', sans-serif;
+  font-weight: bold;
+}
+
 
 .bttn{
   background-color: #b8aea8;
