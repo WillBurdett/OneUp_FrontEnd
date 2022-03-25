@@ -45,10 +45,10 @@ const FooterBar = () => {
                     <div className="footer-col">
                         <h4>Follow us</h4>
                         <div className="social-links">
-                            {/* <a className="social-media-icons" href=""><img className="Twitter" src = {TwitterLogo} alt = "Twitter logo"/></a>
-                            <a className="social-media-icons"  href=""><img className="Facebook" src = {FacebookLogo} alt = "Facebook logo"/></a>
-                            <a className="social-media-icons" href=""><img className="Instagram" src = {InstagramLogo} alt = "Instagram logo"/></a>
-                            <a className="social-media-icons" href=""><img className="Youtube" src = {YoutubeLogo} alt = "Youtube logo"/></a> */}
+                            <a className="social-media-icons" href=""><img className="Twitter" src={TwitterLogo} alt="Twitter logo"/></a>
+                            <a className="social-media-icons" href=""><img className="Instagram" src={InstagramLogo} alt="Instagram logo"/></a>
+                            <a className="social-media-icons"  href=""><img className="Facebook" src={FacebookLogo} alt="Facebook logo"/></a>
+                        
                         </div>
                         <p className="footer-description"> © 2022 The London Library. All rights reserved. Charity No. 312175</p>
 

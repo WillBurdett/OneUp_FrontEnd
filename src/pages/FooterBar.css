@@ -17,7 +17,8 @@ ul{
 
 .footer-col{
     width: 20%;
-    padding: 0 20px;
+    padding: 0 30px;
+    margin-left: -10px;
 }
 .footer-col h4{
     font-size: 24px;
@@ -57,7 +58,7 @@ ul{
     display: inline-block;
     height: 75px;
     width: 75px;
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: rgb(255, 255, 255);
     margin: 0 20px 20px 0;
     text-align: center;
     line-height: 75px;
@@ -68,7 +69,7 @@ ul{
 
 .footer-col .social-links a:hover{
     color: #24262b;
-    background-color: #ffff;
+    background-color: rgb(97, 62, 62);
     align-items: center;
 }
 
@@ -92,34 +93,22 @@ ul{
     justify-content: center;
     align-items: center;
     margin-top: 100px;
-
 }
 
-
-/*
 .Twitter{
-
-    width: 25px;
-    height: auto;
-    align-items: center;
+    flex: auto;
+    position: relative;
+    margin-top: 10%;
 }
-
 .Facebook{
-
-    width: 15px;
-    height: auto;
-    align-items: center;
+    flex: auto;
+    position: relative;
+    margin-top: 10%;
 }
 .Instagram{
-
-    width: 25px;
-    height: px;
-    align-items: center;
+    flex: auto;
+    position: relative;
+    margin-top: 15%;
+   
+    
 }
-.Youtube{
-
-    width: 30px;
-    height: 30px;
-} */
-
-
