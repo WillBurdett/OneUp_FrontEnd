@@ -7,10 +7,12 @@ import '../pages/BootstrapNavbar.css';
 export default class BootstrapNavbar extends Component {
     render() {
         return (
-            <div>
+            <>
                 {/* <Navbar bg="dark" variant={"dark"} expand="lg"> */}
                 {/* <Navbar className="navbar" bg="dark" variant={"dark"} expand="lg"> */}
-                <Navbar className="navbar" variant={"dark"} expand="lg">
+                {/* <Navbar className="navbar" variant={"dark"} expand="lg"> */}
+                {/* <Navbar fixed={'top'} className={'position-sticky ps-0'}> */}
+                <Navbar className="navbar" expand="lg">
                 <Container fluid>
                     <Navbar.Brand><img className="nav-logo" src = {bookLogo} alt = "Book logo"/></Navbar.Brand>
                     <Navbar.Toggle aria-controls="navbarScroll" />
@@ -55,7 +57,7 @@ export default class BootstrapNavbar extends Component {
                     </Navbar.Collapse>
                 </Container>
                 </Navbar>
-            </div>
+            </>
         )
     }
 }
