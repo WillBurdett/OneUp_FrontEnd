@@ -64,7 +64,13 @@ const Home = ({isManager}) => {
         <section className="about-us_container">
             <div className="about-us_textbox">
                 <h2>About us</h2>
-                <p>Something about the company and our beliefs</p>
+                <p>We are 1-up library, and believe in</p>
+                <p>the magic of reading. Everyone deserves access</p>
+                <p>To books and education regardless of circumstance.</p>
+                <p>1-up aims to make reading available to all.</p>
+                <p>We hope you enjoy your time exploring our</p>
+                <p>wonderful collection of books.</p>
+
             </div>
             <div>
                 <img id="home-about-us_img" src="https://i.pinimg.com/originals/7a/07/5a/7a075ae77e31249f5585f38cbeb77dd0.jpg" alt="library books"></img>

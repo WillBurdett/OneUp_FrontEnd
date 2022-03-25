@@ -12,8 +12,7 @@ const Customer = ({allBooks, availableBooks, unavailableBooks, loanBook, returnB
 
     const booksOnShelf = document.querySelectorAll(".book2"); 
 
-    const shelfArray = ["x", "x", "x", "x"]
-
+    const shelfArray = ["x", "x", "x", "x"];
 
     const [bookShelfState, setBookShelfState] = useState(shelfArray)
     const [idToReturn, setIdToReturn] = useState(0)

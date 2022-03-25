@@ -76,9 +76,9 @@ a:active {
     margin-bottom: 4em;
     padding-top: 2em;
     padding-bottom: 2em;
-    border: solid #b8aea8 3px;
+    border: solid white 3px;
     background-color: #b8aea8;
-    border-radius: 30px;
+    /* border-radius: 30px; */
     display: flex;
     justify-content: center;
     flex-direction: row;
@@ -91,7 +91,8 @@ a:active {
       
 #home-about-us_img{
     max-width: 500px;
-    border-radius: 30px;
+    border: solid white 3px;
+    /* border-radius: 30px; */
 }
 
 .about-us_textbox{
